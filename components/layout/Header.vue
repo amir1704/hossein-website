@@ -10,7 +10,7 @@ import type { NuxtLink } from '#build/components';
             </div>
             <div class="col-span-12 md:col-span-4 place-self-center">
                 <NuxtLink to="/">
-                    <NuxtImg
+                    <img
                      src="/images/logo.png" alt="logo"/>
                 </NuxtLink>
             </div>
