@@ -7,8 +7,14 @@ useHead({
 })
 </script>
 <template>
-    <div class="container mx-auto mt-20">
+      <header class="container mx-auto mt-20">
         <Header />
+      </header>
+
+      <main class="container mx-auto mt-24">
         <slot></slot>
-    </div>
+      </main>
+      <footer class="container mx-auto">
+
+      </footer>
 </template>
