@@ -1,17 +1,24 @@
-
-import type { NuxtLink } from '#build/components';
 <script setup>
+ const showMenu = ref(false);
+ onMounted(()=>{
+
+ })
+
 </script>
 <template>
-    <header>
         <div class="grid grid-cols-12">
             <div class="col-span-12 md:col-span-4 flex items-center md:justify-start ">
-                
+              <button aria-controls="default-sidebar" type="button" class="flex text-thblack-100 text-xl focus:outline-none" @click="()=>{showMenu=!showMenu;}">
+                <svg class="w-4 h-4 mt-1.5 mr-2" aria-hidden="true" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                </svg>
+                <p>menu</p>
+              </button>
             </div>
             <div class="col-span-12 md:col-span-4 place-self-center">
                 <NuxtLink to="/">
-                    <img
-                     src="/images/logo.png" alt="logo"/>
+                    <NuxtImg
+                     src="images/logo.png" alt="logo"/>
                 </NuxtLink>
             </div>
             <div class="col-span-12 md:col-span-4 flex items-center md:justify-end">
@@ -48,9 +55,22 @@ import type { NuxtLink } from '#build/components';
                     </svg>
                 </button>
             </div>
-            <div class="col-span-12 place-content-center">
-
+            <div class="col-span-12 place-content-center mt-20 flex justify-center">
+                <div class="relative w-full max-w-[580px]">
+                  <input type="text" class="w-full max-w-[580px] bg-thgray-300 px-9 py-5 rounded-lg placeholder:text-base placeholder:text-thgray-400 focus:outline-none" placeholder="Search..."/>
+                  <button class="absolute right-5 inset-y-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19.985" height="19.985" viewBox="0 0 19.985 19.985">
+                      <g data-name="Icon feather-search">
+                        <path data-name="Path 29455" d="M4.5 12.309A7.809 7.809 0 1 0 12.309 4.5 7.809 7.809 0 0 0 4.5 12.309z" transform="translate(-1.134 -3.5)" style="fill:none;stroke:#414141;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/>
+                        <path data-name="Path 29456" d="m24.975 29.221 4.246-4.246" transform="translate(-23.561 -10.651)" style="fill:none;stroke:#414141;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/>
+                      </g>
+                    </svg>
+                  </button>
+                </div>
             </div>
         </div>
-    </header>
+      <aside id="default-sidebar" class="menu fixed top-0 left-0 z-40 w-full md:w-1/3 lg:w-1/4 2xl:w-1/5 h-screen transition-transform -translate-x-full" :class="showMenu ? 'translate-x-0' : ''" aria-label="Sidenav" >
+        <div class="overflow-y-auto h-full bg-thred">
+        </div>
+      </aside>
 </template>
