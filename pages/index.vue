@@ -29,7 +29,7 @@
     <div class="grid grid-cols-12 md:grid-cols-3 lg:grid-cols-5 mt-12">
         <div class="project relative">
           <NuxtLink class="w-full h-full" to="/">
-            <img src="/images/projects.jpg" />
+            <NuxtImg src="/images/projects.jpg" />
           </NuxtLink>
           <button class="absolute top-4 right-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -50,7 +50,7 @@
         </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -71,7 +71,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -92,7 +92,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -113,7 +113,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -134,7 +134,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -155,7 +155,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -176,7 +176,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -197,7 +197,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -218,7 +218,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -239,7 +239,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -260,7 +260,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -281,7 +281,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -302,7 +302,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -323,7 +323,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -344,7 +344,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -365,7 +365,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -386,7 +386,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -407,7 +407,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -428,7 +428,7 @@
       </div>
       <div class="project relative">
         <NuxtLink class="w-full h-full" to="/">
-          <img src="/images/projects.jpg" />
+          <NuxtImg src="/images/projects.jpg" />
         </NuxtLink>
         <button class="absolute top-4 right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">
@@ -472,7 +472,7 @@
     </div>
     <div class="grid grid-cols-12 gap-x-14 mt-14">
       <div class="col-span-3 hidden md:block">
-          <img src="/images/testimonials.webp" />
+          <NuxtImg src="/images/testimonials.webp" />
           <div class="bg-thred px-6 py-7">
             <h1 class="text-thwhite font-bold text-base">
               Peter Azarbad
@@ -485,7 +485,7 @@
       <div class="col-span-12 md:col-span-9">
         <div class="flex flex-row">
           <div class="col-span-2 hidden md:block mx-3">
-            <img src="/images/testimonials.webp" />
+            <NuxtImg src="/images/testimonials.webp" />
             <div class="bg-thgray-200 px-6 py-7">
               <h1 class="text-thblack-200 font-semibold text-base">
                 Peter Azarbad
@@ -496,7 +496,7 @@
             </div>
           </div>
           <div class="col-span-2 hidden md:block mx-3">
-            <img src="/images/testimonials.webp" />
+            <NuxtImg src="/images/testimonials.webp" />
             <div class="bg-thred px-6 py-7">
               <h1 class="text-thwhite font-bold text-base">
                 Peter Azarbad
@@ -507,7 +507,7 @@
             </div>
           </div>
           <div class="col-span-2 hidden md:block mx-3">
-            <img src="/images/testimonials.webp" />
+            <NuxtImg src="/images/testimonials.webp" />
             <div class="bg-thred px-6 py-7">
               <h1 class="text-thwhite font-bold text-base">
                 Peter Azarbad
@@ -518,7 +518,7 @@
             </div>
           </div>
           <div class="col-span-2 hidden md:block mx-3">
-            <img src="/images/testimonials.webp" />
+            <NuxtImg src="/images/testimonials.webp" />
             <div class="bg-thred px-6 py-7">
               <h1 class="text-thwhite font-bold text-base">
                 Peter Azarbad
@@ -529,7 +529,7 @@
             </div>
           </div>
           <div class="col-span-2 hidden md:block mx-3">
-            <img src="/images/testimonials.webp" />
+            <NuxtImg src="/images/testimonials.webp" />
             <div class="bg-thred px-6 py-7">
               <h1 class="text-thwhite font-bold text-base">
                 Peter Azarbad
@@ -571,67 +571,67 @@
     </div>
     <div class="grid grid-cols-7 gap-x-10 gap-y-24 mt-24">
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
       <div class="flex justify-center items-center">
-        <img class="max-w-24 max-h-24" src="/images/partners.png" />
+        <NuxtImg class="max-w-24 max-h-24" src="/images/partners.png" />
       </div>
     </div>
     <div class="grid grid-cols-12 mt-24">
@@ -648,7 +648,7 @@
   <section class="callAction mt-80">
     <div class="grid grid-cols-12 gap-24">
       <div class="col-span-5">
-        <img src="/images/callAction.webp" />
+        <NuxtImg src="/images/callAction.webp" />
       </div>
       <div class="col-span-7">
         <svg data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">

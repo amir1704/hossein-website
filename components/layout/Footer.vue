@@ -6,7 +6,7 @@
   <div class="grid grid-cols-12 pb-20 pt-40">
     <div class="col-span-12 place-self-center">
       <NuxtLink to="/">
-        <img
+        <NuxtImg
             src="/images/logo.png" alt="logo"/>
       </NuxtLink>
     </div>

@@ -17,7 +17,7 @@
             </div>
             <div class="col-span-12 md:col-span-4 place-self-center">
                 <NuxtLink to="/">
-                    <img
+                    <NuxtImg
                      src="/images/logo.png" alt="logo"/>
                 </NuxtLink>
             </div>
