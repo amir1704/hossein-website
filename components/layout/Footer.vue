@@ -6,8 +6,8 @@
   <div class="grid grid-cols-12 pb-20 pt-40">
     <div class="col-span-12 place-self-center">
       <NuxtLink to="/">
-        <NuxtImg
-            src="images/logo.png" alt="logo"/>
+        <img
+            src="/images/logo.png" alt="logo"/>
       </NuxtLink>
     </div>
     <div class="col-span-12 flex flex-row justify-center mt-14">
