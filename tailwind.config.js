@@ -22,6 +22,10 @@ export default {
         200: '#000'
       },
       thred: '#db0021',
+      thred2:{
+        100: '#df2a3c',
+        200: '#801c1e'
+      }
     },
     extend: {
       fontFamily: {
