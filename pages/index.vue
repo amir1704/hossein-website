@@ -1,5 +1,11 @@
 <script setup>
-
+const player = ref(null);
+const play = ref(true);
+const slider = ref(null);
+const getActive = (e) => {
+  document.querySelector('.testimonial.active')?.classList.remove('active');
+  e.target.closest('.testimonial').classList.add('active');
+}
 </script>
 
 <template>
@@ -483,81 +489,120 @@
           </div>
       </div>
       <div class="col-span-12 md:col-span-9">
-        <div class="flex flex-row">
-          <div class="col-span-2 hidden md:block mx-3">
-            <NuxtImg src="/images/testimonials.webp" />
-            <div class="bg-thgray-200 px-6 py-7">
-              <h1 class="text-thblack-200 font-semibold text-base">
-                Peter Azarbad
-              </h1>
-              <p class="text-thblack-200 opacity-40 text-base">
-                Justin
-              </p>
-            </div>
-          </div>
-          <div class="col-span-2 hidden md:block mx-3">
-            <NuxtImg src="/images/testimonials.webp" />
-            <div class="bg-thred px-6 py-7">
-              <h1 class="text-thwhite font-bold text-base">
-                Peter Azarbad
-              </h1>
-              <p class="text-thwhite text-base">
-                Justin
-              </p>
-            </div>
-          </div>
-          <div class="col-span-2 hidden md:block mx-3">
-            <NuxtImg src="/images/testimonials.webp" />
-            <div class="bg-thred px-6 py-7">
-              <h1 class="text-thwhite font-bold text-base">
-                Peter Azarbad
-              </h1>
-              <p class="text-thwhite text-base">
-                Justin
-              </p>
-            </div>
-          </div>
-          <div class="col-span-2 hidden md:block mx-3">
-            <NuxtImg src="/images/testimonials.webp" />
-            <div class="bg-thred px-6 py-7">
-              <h1 class="text-thwhite font-bold text-base">
-                Peter Azarbad
-              </h1>
-              <p class="text-thwhite text-base">
-                Justin
-              </p>
-            </div>
-          </div>
-          <div class="col-span-2 hidden md:block mx-3">
-            <NuxtImg src="/images/testimonials.webp" />
-            <div class="bg-thred px-6 py-7">
-              <h1 class="text-thwhite font-bold text-base">
-                Peter Azarbad
-              </h1>
-              <p class="text-thwhite text-base">
-                Justin
-              </p>
-            </div>
-          </div>
-        </div>
+          <swiper-container
+              :slides-per-view="1"
+              :breakpoints="{
+                768: {
+                  slidesPerView: 5,
+                },
+              }"
+              :loop="true"
+              ref="slider"
+          >
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300 ">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="testimonial col-span-2 group mx-3 transition-all duration-300" @click="getActive">
+                <NuxtImg src="/images/testimonials.webp" />
+                <div class="bg-thgray-200 px-6 py-7 group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
+                  <h1 class="text-thblack-200 font-semibold text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300">
+                    Peter Azarbad
+                  </h1>
+                  <p class="text-thblack-200 opacity-40 text-base group-hover:text-thwhite group-hover:opacity-100 group-[.active]:text-thwhite group-[.active]:opacity-100 transition-all duration-300" >
+                    Justin
+                  </p>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper-container>
         <div class="flex flex-row mx-3 mt-11">
-          <button class="bg-thgray-200 rounded-full rotate-180 w-16 h-16 flex justify-center items-center mx-1">
+          <button class="bg-thgray-200 rounded-full rotate-180 w-16 h-16 flex justify-center items-center mx-1" @click="slider.swiper.slidePrev(300)">
             <svg xmlns="http://www.w3.org/2000/svg" width="8.992" height="14.388" viewBox="0 0 8.992 14.388">
               <path data-name="Path 29473" d="M172.153 128.222a.9.9 0 1 0-1.184 1.354l6.42 5.617-6.421 5.618a.9.9 0 1 0 1.184 1.354l7.194-6.295a.9.9 0 0 0 0-1.354zm0 0" transform="translate(-170.661 -128)" style="fill:#db0021"/>
             </svg>
           </button>
           <button class="bg-thgray-200 rounded-full w-16 h-16 flex justify-center items-center mx-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
+            <audio ref="player" src="/horse.mp3"></audio>
+            <svg v-if="play" @click="()=>{play = false; player.play();}" xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
               <path data-name="Polygon 4" d="M7.63 1.535a1 1 0 0 1 1.74 0l6.784 11.972a1 1 0 0 1-.87 1.493H1.716a1 1 0 0 1-.87-1.493z" transform="rotate(90 7.5 7.5)" style="fill:#db0021"/>
             </svg>
+            <svg v-else @click="()=>{play = true; player.pause();}" fill="#db0021" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                  <path d="M224,435.8V76.1c0-6.7-5.4-12.1-12.2-12.1h-71.6c-6.8,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6   C218.6,448,224,442.6,224,435.8z"/>
+                  <path d="M371.8,64h-71.6c-6.7,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6c6.7,0,12.2-5.4,12.2-12.2V76.1   C384,69.4,378.6,64,371.8,64z"/>
+                </g>
+              </svg>
           </button>
-          <button class="bg-thgray-200 rounded-full w-16 h-16 flex justify-center items-center mx-1">
+          <button class="bg-thgray-200 rounded-full w-16 h-16 flex justify-center items-center mx-1" @click="slider.swiper.slideNext(300)">
             <svg xmlns="http://www.w3.org/2000/svg" width="8.992" height="14.388" viewBox="0 0 8.992 14.388">
               <path data-name="Path 29473" d="M172.153 128.222a.9.9 0 1 0-1.184 1.354l6.42 5.617-6.421 5.618a.9.9 0 1 0 1.184 1.354l7.194-6.295a.9.9 0 0 0 0-1.354zm0 0" transform="translate(-170.661 -128)" style="fill:#db0021"/>
             </svg>
           </button>
           <div ref="wavePlayer" class="flex-grow">
-            wavecontainer
+            <NuxtImg class="w-full" src="/images/wave-big.png" />
           </div>
         </div>
       </div>
@@ -647,10 +692,10 @@
   </section>
   <section class="callAction mt-80">
     <div class="grid grid-cols-12 gap-24">
-      <div class="col-span-5">
+      <div class="col-span-12 md:col-span-5">
         <NuxtImg src="/images/callAction.webp" />
       </div>
-      <div class="col-span-7">
+      <div class="col-span-12 md:col-span-7">
         <svg data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">
           <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>
           <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>

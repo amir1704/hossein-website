@@ -5,7 +5,9 @@ useHead({
     bodyAttrs: {
         class: 'bg-thgray-100 font-heebo'
     }
-})
+});
+import { register } from 'swiper/element/bundle';
+register()
 </script>
 <template>
       <header class="container mx-auto mt-20">
