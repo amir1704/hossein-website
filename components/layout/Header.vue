@@ -105,42 +105,42 @@
             </div>
             <div class="col-span-12 flex flex-col justify-start p-24">
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Home
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   About Us
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Our Services
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Blogs
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Our Products
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Contact Us
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Our Projects
                 </NuxtLink>
               </div>
               <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="\">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
                   Shop
                 </NuxtLink>
               </div>
