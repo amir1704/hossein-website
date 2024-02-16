@@ -3,14 +3,14 @@
 </script>
 
 <template>
-  <div class="grid grid-cols-12 pb-20 pt-40">
+  <div class="grid grid-cols-12  pt-24 pb-20 lg:pt-40">
     <div class="col-span-12 place-self-center">
       <NuxtLink to="/">
         <NuxtImg
             src="/images/logo.png" alt="logo"/>
       </NuxtLink>
     </div>
-    <div class="col-span-12 flex flex-row justify-center mt-14">
+    <div class="col-span-12 flex-row flex-wrap justify-center mt-14 hidden lg:flex">
       <NuxtLink class="text-thwhite font-light text-lg mx-3.5">
         All
       </NuxtLink>
@@ -30,7 +30,7 @@
         UI/UX
       </NuxtLink>
     </div>
-    <div class="col-span-12 flex flex-row justify-center mt-11">
+    <div class="col-span-12 flex flex-row flex-wrap gap-y-4 justify-center mt-11">
       <NuxtLink class="mx-3.5">
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
           <g data-name="phone-call(1)">

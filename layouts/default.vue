@@ -10,14 +10,14 @@ import { register } from 'swiper/element/bundle';
 register()
 </script>
 <template>
-      <header class="container mx-auto mt-20">
+      <header class="container mx-auto mt-16 lg:mt-20">
         <Header />
       </header>
 
-      <main class="container mx-auto mt-24">
+      <main class="container mx-auto mt-11 lg:mt-24">
         <slot></slot>
       </main>
-      <footer class="bg-thred mt-64">
+      <footer class="bg-thred mt-44 lg:mt-64">
           <div class="container mx-auto ">
             <Footer />
           </div>
