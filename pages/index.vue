@@ -1,7 +1,14 @@
 <script setup>
+import {useSettingStore} from "~/stores/useSettingStore.js";
 const player = ref(null);
 const play = ref(true);
 const slider = ref(null);
+
+const setting = useSettingStore().setting;
+
+useHead({
+  title: setting.title,
+})
 const getActive = (e) => {
   document.querySelector('.testimonial.active')?.classList.remove('active');
   e.target.closest('.testimonial').classList.add('active');
