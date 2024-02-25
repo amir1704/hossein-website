@@ -72,3 +72,11 @@
 		animation-play-state: paused;
 	}
 }
+
+@media (-webkit-min-device-pixel-ratio: 1.25),
+(min--moz-device-pixel-ratio: 1.25) /* Older Firefox browsers (prior to firefox 16) */,
+(min-resolution: 1.25dppx) {
+	:root {
+		zoom: 0.8;
+	}
+}
