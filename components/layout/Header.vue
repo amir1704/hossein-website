@@ -1,8 +1,12 @@
 <script setup>
  import GrayBack from "~/components/layout/GrayBack.vue";
  import Modal from "~/components/layout/Modal.vue";
+ import useWpApi from "~/composables/useWpApi.ts";
+ import {useSettingStore} from "~/stores/useSettingStore.js";
  const showMenu = ref(false);
  const showContact = ref(false);
+ let show = ref(false);
+ const isOpen = () => (show.value = !show.value);
  onMounted(()=>{
    window.document.addEventListener('click',(e)=>{
      if(e.target.classList.contains('gray-back')){
@@ -11,9 +15,13 @@
      }
    })
  });
- onUnmounted(()=>{
-   window.document.removeEventListener('click');
- });
+
+const setting = ref(useSettingStore().frontPage);
+const menuItems = ref([]);
+const {data,error} = await useWpApi().get('menus/primary');
+if(!error.value){
+  menuItems.value = data.value;
+}
 </script>
 <template>
         <div class="grid grid-cols-12">
@@ -33,7 +41,7 @@
             <div class="col-span-12 xl:col-span-4 place-self-center">
                 <NuxtLink to="/">
                     <NuxtImg
-                     src="/images/logo.png" alt="logo"/>
+                     :src="setting.logo" alt="logo"/>
                 </NuxtLink>
             </div>
             <div class="col-span-12 xl:col-span-4 flex items-center justify-center xl:justify-end mt-12 xl:mt-0">
@@ -52,7 +60,7 @@
                         <path data-name="telephone(2)" d="M14.463 22.063C5.623 22-4.733 9.116 2.835 1.543c.269-.273.553-.536.846-.782a3.213 3.213 0 0 1 4.342.185l.011.011 1.457 1.515A3.16 3.16 0 0 1 8.453 7.6a6.958 6.958 0 0 0-1.153.573c-.8.818-1.314 2.147 1.689 5.154.974.976 2.417 2.273 3.695 2.273a2.04 2.04 0 0 0 1.453-.67 6.7 6.7 0 0 0 .532-1.1 3.154 3.154 0 0 1 5.136-1.058l1.5 1.449.011.01a3.219 3.219 0 0 1 .192 4.335c-.229.274-.473.542-.726.8a8.743 8.743 0 0 1-6.319 2.697zM5.755 1.726a1.5 1.5 0 0 0-.967.355c-.251.21-.494.436-.725.67-4.034 4.1-1.817 9.695 2.059 13.527 3.841 3.822 9.41 5.911 13.439 1.864.217-.217.426-.447.622-.682a1.488 1.488 0 0 0-.084-2.009L18.6 14l-.011-.01a1.419 1.419 0 0 0-2.322.477 6.641 6.641 0 0 1-.887 1.653 3.741 3.741 0 0 1-2.7 1.2c-1.9 0-3.623-1.485-4.914-2.779-1.955-1.877-4.22-5.083-1.666-7.607a6.843 6.843 0 0 1 1.7-.925 1.426 1.426 0 0 0 .464-2.325l-.011-.011L6.8 2.158a1.476 1.476 0 0 0-1.043-.432zM21.4 10.3a.862.862 0 0 1-.857-.784 8.6 8.6 0 0 0-7.8-7.8A.862.862 0 1 1 12.9 0a10.4 10.4 0 0 1 9.358 9.358.862.862 0 0 1-.781.935q-.042.007-.077.007zm-6.713 0a.862.862 0 0 0 .545-1.09 3.486 3.486 0 0 0-2.121-2.177.862.862 0 0 0-.574 1.625 1.751 1.751 0 0 1 1.061 1.1.861.861 0 0 0 1.09.545zm3.385-.007a.862.862 0 0 0 .731-.975 6.941 6.941 0 0 0-5.862-5.858.862.862 0 0 0-.241 1.706 5.209 5.209 0 0 1 4.4 4.4.861.861 0 0 0 .975.731z" transform="translate(-.214 -.001)" style="fill:#293340"/>
                     </svg>
                 </button>
-                <NuxtLink to="/" class="mx-5 xl:mx-2">
+                <NuxtLink :to="setting.shop_link" class="mx-5 xl:mx-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21.999" height="22" viewBox="0 0 21.999 22">
                         <g data-name="Group 231">
                             <path data-name="instagram(1)" d="M11.217 22H11c-1.724 0-3.318-.04-4.867-.134a6.506 6.506 0 0 1-3.75-1.42 6.02 6.02 0 0 1-2.026-3.264 14.472 14.472 0 0 1-.332-3.456C.014 12.923 0 11.971 0 11s.014-1.92.025-2.723a14.473 14.473 0 0 1 .332-3.456A6.02 6.02 0 0 1 2.38 1.555 6.506 6.506 0 0 1 6.131.136C7.68.041 9.274 0 11 0s3.318.04 4.867.134a6.506 6.506 0 0 1 3.75 1.42A6.019 6.019 0 0 1 21.64 4.82a14.472 14.472 0 0 1 .332 3.456c.011.8.023 1.755.025 2.723 0 .968-.014 1.919-.025 2.723a14.465 14.465 0 0 1-.332 3.456 6.019 6.019 0 0 1-2.023 3.266 6.506 6.506 0 0 1-3.75 1.42c-1.484.09-3.008.134-4.653.134zM11 20.282c1.7 0 3.254-.039 4.767-.131a4.735 4.735 0 0 0 2.769-1.036 4.339 4.339 0 0 0 1.444-2.359 13.166 13.166 0 0 0 .279-3.054c.011-.8.022-1.743.025-2.7s-.014-1.9-.025-2.7a13.168 13.168 0 0 0-.279-3.054 4.339 4.339 0 0 0-1.444-2.359 4.736 4.736 0 0 0-2.769-1.036c-1.515-.094-3.073-.137-4.767-.133s-3.254.039-4.767.131a4.736 4.736 0 0 0-2.767 1.036 4.339 4.339 0 0 0-1.444 2.359A13.167 13.167 0 0 0 1.744 8.3c-.011.8-.022 1.744-.025 2.7s.014 1.9.025 2.7a13.166 13.166 0 0 0 .279 3.054 4.339 4.339 0 0 0 1.444 2.359 4.736 4.736 0 0 0 2.769 1.036c1.512.094 3.07.137 4.764.133z" transform="translate(0 -.001)" style="fill:#293340"/>
@@ -62,27 +70,56 @@
                         </g>
                     </svg>
                 </NuxtLink>
-                <NuxtLink to="/" class="mx-5 xl:mx-2">
+                <NuxtLink :to="setting.instagram_link" class="mx-5 xl:mx-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22.062" height="22.062" viewBox="0 0 22.062 22.062">
                         <path data-name="instagram(1)" d="M11.249 22.064h-.22c-1.729 0-3.327-.04-4.881-.134a6.525 6.525 0 0 1-3.761-1.424A6.037 6.037 0 0 1 .358 17.23a14.512 14.512 0 0 1-.333-3.465C.014 12.959 0 12.005 0 11.034S.014 9.106.025 8.3a14.514 14.514 0 0 1 .333-3.465A6.037 6.037 0 0 1 2.387 1.56 6.525 6.525 0 0 1 6.148.136C7.7.041 9.3 0 11.033 0s3.327.04 4.881.134a6.525 6.525 0 0 1 3.762 1.426A6.036 6.036 0 0 1 21.7 4.835a14.513 14.513 0 0 1 .337 3.465c.011.805.023 1.76.025 2.73 0 .971-.014 1.925-.025 2.73a14.505 14.505 0 0 1-.337 3.47 6.036 6.036 0 0 1-2.029 3.275 6.525 6.525 0 0 1-3.761 1.424 75.93 75.93 0 0 1-4.666.135zm-.22-1.724c1.7 0 3.263-.039 4.781-.131a4.748 4.748 0 0 0 2.777-1.039 4.352 4.352 0 0 0 1.447-2.37 13.2 13.2 0 0 0 .28-3.063c.011-.8.022-1.748.025-2.709s-.014-1.909-.025-2.709a13.206 13.206 0 0 0-.28-3.063A4.352 4.352 0 0 0 18.586 2.9a4.749 4.749 0 0 0-2.776-1.044c-1.517-.092-3.08-.135-4.777-.131s-3.263.039-4.781.131A4.749 4.749 0 0 0 3.476 2.9a4.352 4.352 0 0 0-1.448 2.361 13.2 13.2 0 0 0-.28 3.063c-.011.8-.022 1.749-.025 2.711s.014 1.906.025 2.707a13.2 13.2 0 0 0 .28 3.063 4.352 4.352 0 0 0 1.448 2.365 4.749 4.749 0 0 0 2.777 1.039c1.517.091 3.08.135 4.776.131zm-.041-3.921a5.386 5.386 0 1 1 5.386-5.386 5.393 5.393 0 0 1-5.386 5.386zm0-9.049a3.663 3.663 0 1 0 3.663 3.663 3.667 3.667 0 0 0-3.663-3.663zm5.99-3.447a1.293 1.293 0 1 0 1.292 1.292 1.293 1.293 0 0 0-1.292-1.292zm0 0" transform="translate(0 -.001)" style="fill:#293340"/>
                     </svg>
                 </NuxtLink>
-                <button class="mx-5 xl:mx-2">
-                    <svg data-name="Group 226" xmlns="http://www.w3.org/2000/svg" width="22.062" height="22.062" viewBox="0 0 22.062 22.062">
-                        <path data-name="instagram(1)" d="M11.249 22.064h-.22c-1.729 0-3.327-.04-4.881-.134a6.525 6.525 0 0 1-3.761-1.424A6.037 6.037 0 0 1 .358 17.23a14.513 14.513 0 0 1-.333-3.465C.014 12.959 0 12.005 0 11.034S.014 9.106.025 8.3a14.514 14.514 0 0 1 .333-3.465A6.037 6.037 0 0 1 2.387 1.56 6.525 6.525 0 0 1 6.148.136C7.7.041 9.3 0 11.033 0s3.327.04 4.881.134a6.525 6.525 0 0 1 3.762 1.426A6.036 6.036 0 0 1 21.7 4.835a14.513 14.513 0 0 1 .337 3.465c.011.805.023 1.76.025 2.73 0 .971-.014 1.925-.025 2.73a14.505 14.505 0 0 1-.337 3.47 6.036 6.036 0 0 1-2.029 3.275 6.525 6.525 0 0 1-3.761 1.424 75.93 75.93 0 0 1-4.666.135zm-.22-1.724c1.7 0 3.263-.039 4.781-.131a4.748 4.748 0 0 0 2.777-1.039 4.352 4.352 0 0 0 1.447-2.37 13.2 13.2 0 0 0 .28-3.063c.011-.8.022-1.748.025-2.709s-.014-1.909-.025-2.709a13.206 13.206 0 0 0-.28-3.063A4.352 4.352 0 0 0 18.586 2.9a4.749 4.749 0 0 0-2.776-1.044c-1.517-.092-3.08-.135-4.777-.131s-3.263.039-4.781.131A4.749 4.749 0 0 0 3.476 2.9a4.352 4.352 0 0 0-1.448 2.361 13.2 13.2 0 0 0-.28 3.063c-.011.8-.022 1.749-.025 2.711s.014 1.906.025 2.707a13.2 13.2 0 0 0 .28 3.063 4.352 4.352 0 0 0 1.448 2.365 4.749 4.749 0 0 0 2.777 1.039c1.517.091 3.08.135 4.776.131z" transform="translate(0 -.001)" style="fill:#293340"/>
+                <div class="relative mt-2">
+                  <button @click="isOpen" class="mx-5 xl:mx-2">
+                    <svg data-name="Component 69 – 1" xmlns="http://www.w3.org/2000/svg" width="33.094" height="22.062" viewBox="0 0 33.094 22.062">
+                      <g data-name="Group 226">
+                        <path data-name="instagram(1)" d="M11.249 22.064h-.22c-1.729 0-3.327-.04-4.881-.134a6.525 6.525 0 0 1-3.761-1.424A6.037 6.037 0 0 1 .358 17.23a14.512 14.512 0 0 1-.333-3.465C.014 12.959 0 12.005 0 11.034S.014 9.106.025 8.3a14.514 14.514 0 0 1 .333-3.465A6.037 6.037 0 0 1 2.387 1.56 6.525 6.525 0 0 1 6.148.136C7.7.041 9.3 0 11.033 0s3.327.04 4.881.134a6.525 6.525 0 0 1 3.762 1.426A6.036 6.036 0 0 1 21.7 4.835a14.513 14.513 0 0 1 .337 3.465c.011.805.023 1.76.025 2.73 0 .971-.014 1.925-.025 2.73a14.505 14.505 0 0 1-.337 3.47 6.036 6.036 0 0 1-2.029 3.275 6.525 6.525 0 0 1-3.761 1.424 75.93 75.93 0 0 1-4.666.135zm-.22-1.724c1.7 0 3.263-.039 4.781-.131a4.748 4.748 0 0 0 2.777-1.039 4.352 4.352 0 0 0 1.447-2.37 13.2 13.2 0 0 0 .28-3.063c.011-.8.022-1.748.025-2.709s-.014-1.909-.025-2.709a13.206 13.206 0 0 0-.28-3.063A4.352 4.352 0 0 0 18.586 2.9a4.749 4.749 0 0 0-2.776-1.044c-1.517-.092-3.08-.135-4.777-.131s-3.263.039-4.781.131A4.749 4.749 0 0 0 3.476 2.9a4.352 4.352 0 0 0-1.448 2.361 13.2 13.2 0 0 0-.28 3.063c-.011.8-.022 1.749-.025 2.711s.014 1.906.025 2.707a13.2 13.2 0 0 0 .28 3.063 4.352 4.352 0 0 0 1.448 2.365 4.749 4.749 0 0 0 2.777 1.039c1.517.091 3.08.135 4.776.131z" transform="translate(0 -.001)" style="fill:#293340"/>
                         <g data-name="Group 225">
-                            <path data-name="Path 29595" d="M5.75 8.44a.691.691 0 0 1 .691-.69h3.683a.69.69 0 1 1 0 1.381H7.131v5.754a.691.691 0 0 1-1.381 0z" transform="translate(-.473 -.632)" style="fill-rule:evenodd;fill:#293340"/>
-                            <path data-name="Path 29596" d="M5.75 11.94a.691.691 0 0 1 .691-.69h3.452a.69.69 0 1 1 0 1.381H6.441a.691.691 0 0 1-.691-.691z" transform="translate(-.473 -.91)" style="fill-rule:evenodd;fill:#293340"/>
-                            <path data-name="Path 29597" d="M5.75 15.44a.691.691 0 0 1 .691-.69h3.452a.69.69 0 1 1 0 1.381H6.441a.691.691 0 0 1-.691-.691z" transform="translate(-.473 -1.187)" style="fill-rule:evenodd;fill:#293340"/>
-                            <path data-name="Path 29598" d="M12.941 8.75a.691.691 0 0 1 .691.69v5.524a.691.691 0 0 1-1.381 0V9.44a.691.691 0 0 1 .69-.69z" transform="translate(-.988 -.711)" style="fill-rule:evenodd;fill:#293340"/>
-                            <path data-name="Path 29599" d="M15.012 10.631a1.381 1.381 0 0 0-1.381 1.381V15a.691.691 0 0 1-1.381 0v-2.988a2.762 2.762 0 0 1 5.524 0V15a.691.691 0 0 1-1.381 0v-2.988a1.381 1.381 0 0 0-1.381-1.381z" transform="translate(-.988 -.751)" style="fill-rule:evenodd;fill:#293340"/>
+                          <path data-name="Path 29595" d="M5.75 8.44a.691.691 0 0 1 .691-.69h3.683a.69.69 0 1 1 0 1.381H7.131v5.754a.691.691 0 0 1-1.381 0z" transform="translate(-.473 -.632)" style="fill-rule:evenodd;fill:#293340"/>
+                          <path data-name="Path 29596" d="M5.75 11.94a.691.691 0 0 1 .691-.69h3.452a.69.69 0 1 1 0 1.381H6.441a.691.691 0 0 1-.691-.691z" transform="translate(-.473 -.91)" style="fill-rule:evenodd;fill:#293340"/>
+                          <path data-name="Path 29597" d="M5.75 15.44a.691.691 0 0 1 .691-.69h3.452a.69.69 0 1 1 0 1.381H6.441a.691.691 0 0 1-.691-.691z" transform="translate(-.473 -1.187)" style="fill-rule:evenodd;fill:#293340"/>
+                          <path data-name="Path 29598" d="M12.941 8.75a.691.691 0 0 1 .691.69v5.524a.691.691 0 0 1-1.381 0V9.44a.691.691 0 0 1 .69-.69z" transform="translate(-.988 -.711)" style="fill-rule:evenodd;fill:#293340"/>
+                          <path data-name="Path 29599" d="M15.012 10.631a1.381 1.381 0 0 0-1.381 1.381V15a.691.691 0 0 1-1.381 0v-2.988a2.762 2.762 0 0 1 5.524 0V15a.691.691 0 0 1-1.381 0v-2.988a1.381 1.381 0 0 0-1.381-1.381z" transform="translate(-.988 -.751)" style="fill-rule:evenodd;fill:#293340"/>
                         </g>
+                      </g>
+                      <path  data-name="Polygon 5" d="m3.558 0 3.558 5.269H0z" transform="rotate(180 16.547 7.363)"  style="fill:#293340"/>
                     </svg>
-                </button>
+                  </button>
+                  <div
+                      v-show="show"
+                      class="absolute right-0 py-6 mt-2 bg-thgray-250 pl-9 pr-8 z-40"
+                  >
+                    <div class="relative pl-2 py-2 group">
+                      <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                      <div class="flex flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-0 before:h-full before:px-px before:bg-thgray-400 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-0 after:w-1.5 after:h-1.5 after:bg-thred after:border-2 after:box-content after:border-thgray-400 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
+                        <NuxtLink to="/" class="text-base text-thblack-200">English</NuxtLink>
+                      </div>
+                    </div>
+                    <div class="relative pl-2 py-2 group">
+                      <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                      <div class="flex flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-0 before:h-full before:px-px before:bg-thgray-400 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-0 after:w-1.5 after:h-1.5 after:bg-thwhite after:border-2 after:box-content after:border-thgray-400 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
+                        <NuxtLink to="/" class="text-base text-thgray-400">Persian</NuxtLink>
+                      </div>
+                    </div>
+                    <div class="relative pl-2 py-2 group">
+                      <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
+                      <div class="flex flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-0 before:h-full before:px-px before:bg-thgray-400 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-0 after:w-1.5 after:h-1.5 after:bg-thwhite after:border-2 after:box-content after:border-thgray-400 after:rounded-full  after:-translate-x-1/2 after:translate-y-1.5">
+                        <NuxtLink to="/" class="text-base text-thgray-400">Arabic</NuxtLink>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
             </div>
             <div class="col-span-12 place-content-center mt-12 xl:mt-20 flex justify-center">
                 <div class="relative w-full max-w-[360px] md:max-w-[580px]">
-                  <input type="text" class="w-full max-w-[360px] md:max-w-[580px] bg-thgray-300 px-9 py-5 rounded-xl placeholder:text-base placeholder:text-thgray-400 focus:outline-none" placeholder="Search..."/>
+                  <input type="text" class="w-full max-w-[360px] md:max-w-[580px] bg-thgray-250 px-7 py-3.5 rounded-xl placeholder:text-base placeholder:text-thgray-400 focus:outline-none" placeholder="Search..."/>
                   <button class="absolute right-5 inset-y-0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19.985" height="19.985" viewBox="0 0 19.985 19.985">
                       <g data-name="Icon feather-search">
@@ -114,44 +151,9 @@
               </button>
             </div>
             <div class="col-span-12 flex flex-col justify-start p-8 lg:p-14 xl:p-20">
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Home
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  About Us
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Our Services
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Blogs
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Our Products
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Contact Us
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Our Projects
-                </NuxtLink>
-              </div>
-              <div class=" w-full border-b border-b-thwhite py-1 mb-8">
-                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" to="/">
-                  Shop
+              <div class=" w-full border-b border-b-thwhite py-1 mb-8" v-for="menuItem in menuItems">
+                <NuxtLink class="text-thwhite font-light text-2xl border-b border-b-thwhite border-b-4" :to="menuItem.href">
+                  {{menuItem.name}}
                 </NuxtLink>
               </div>
             </div>
@@ -182,7 +184,7 @@
           </svg>
         </div>
         <div class="col-span-12 flex justify-center mt-8">
-          <p class="text-thwhite font-light text-2xl">+98 903 541 97 23</p>
+          <p class="text-thwhite font-light text-2xl">{{ setting.telephone }}</p>
         </div>
         <div class="col-span-12 flex justify-center mt-8">
           <svg xmlns="http://www.w3.org/2000/svg" width="25.424" height="20.339" viewBox="0 0 25.424 20.339">
@@ -190,16 +192,16 @@
           </svg>
         </div>
         <div class="col-span-12 flex justify-center mt-8">
-          <p class="text-thwhite font-light text-2xl">azadsgroup@gmail.com</p>
+          <p class="text-thwhite font-light text-2xl">{{ setting.email }}</p>
         </div>
         <div class="col-span-12 flex justify-center mt-14">
           <div class="flex flex-row">
-            <NuxtLink to="/" class="mr-8">
+            <NuxtLink :to="setting.facebook" class="mr-8">
               <svg xmlns="http://www.w3.org/2000/svg" width="37.42" height="37.42" viewBox="0 0 37.42 37.42">
                 <path d="M28.7 6.474a2.245 2.245 0 1 0 1.588.658 2.245 2.245 0 0 0-1.588-.658zM37.308 11a14.2 14.2 0 0 0-.861-4.547 9.243 9.243 0 0 0-2.17-3.312A8.794 8.794 0 0 0 30.965.992a13.658 13.658 0 0 0-4.547-.88C24.435 0 23.8 0 18.71 0S12.985 0 11 .112a13.658 13.658 0 0 0-4.545.88 8.943 8.943 0 0 0-3.312 2.151A8.794 8.794 0 0 0 .992 6.455 13.658 13.658 0 0 0 .112 11C0 12.985 0 13.621 0 18.71s0 5.725.112 7.708a13.658 13.658 0 0 0 .879 4.547 8.794 8.794 0 0 0 2.152 3.312 8.943 8.943 0 0 0 3.312 2.152 13.658 13.658 0 0 0 4.545.879c1.983.112 2.619.112 7.708.112s5.725 0 7.708-.112a13.658 13.658 0 0 0 4.547-.879 8.794 8.794 0 0 0 3.312-2.152 9.074 9.074 0 0 0 2.17-3.312 14.2 14.2 0 0 0 .861-4.547c0-1.983.112-2.619.112-7.708s0-5.725-.112-7.708zM33.94 26.194a10.5 10.5 0 0 1-.636 3.48 5.725 5.725 0 0 1-1.4 2.152 5.969 5.969 0 0 1-2.152 1.4 10.5 10.5 0 0 1-3.48.636c-1.871.094-2.563.112-7.484.112s-5.613 0-7.484-.112a10.721 10.721 0 0 1-3.63-.561 6.118 6.118 0 0 1-2.058-1.4 5.613 5.613 0 0 1-1.385-2.152 10.365 10.365 0 0 1-.748-3.555c0-1.871-.112-2.563-.112-7.484s0-5.613.112-7.484a10.365 10.365 0 0 1 .655-3.555 5.613 5.613 0 0 1 1.475-2.058 5.875 5.875 0 0 1 2.058-1.5 10.721 10.721 0 0 1 3.555-.636c1.871 0 2.563-.112 7.484-.112s5.613 0 7.484.112a10.5 10.5 0 0 1 3.48.636 5.725 5.725 0 0 1 2.226 1.5 5.725 5.725 0 0 1 1.4 2.058 10.5 10.5 0 0 1 .636 3.555c.094 1.871.112 2.563.112 7.484s-.015 5.613-.108 7.484zM18.71 9.112a9.579 9.579 0 1 0 3.682.72 9.6 9.6 0 0 0-3.682-.72zm0 15.829a6.23 6.23 0 1 1 2.384-.474 6.23 6.23 0 0 1-2.384.474z" style="fill:#fafafa"/>
               </svg>
             </NuxtLink>
-            <NuxtLink to="/" class="mr-8">
+            <NuxtLink :to="setting.twitter" class="mr-8">
               <svg xmlns="http://www.w3.org/2000/svg" width="44.904" height="44.904" viewBox="0 0 44.904 44.904">
                 <g data-name="Layer 2">
                   <g data-name="twitter">
@@ -208,7 +210,7 @@
                 </g>
               </svg>
             </NuxtLink>
-            <NuxtLink to="/">
+            <NuxtLink :to="setting.instagram_link">
               <svg xmlns="http://www.w3.org/2000/svg" width="37.42" height="37.42" viewBox="0 0 37.42 37.42">
                 <path d="M35.362 0H2.058A2.058 2.058 0 0 0 0 2.058v33.3a2.058 2.058 0 0 0 2.058 2.062h17.924v-14.5h-4.864v-5.613h4.865V13.1a6.81 6.81 0 0 1 7.259-7.484 37.906 37.906 0 0 1 4.359.225v5.052h-2.975c-2.357 0-2.806 1.123-2.806 2.75v3.611h5.613l-.73 5.613H25.82V37.42h9.542a2.058 2.058 0 0 0 2.058-2.058V2.058A2.058 2.058 0 0 0 35.362 0z" style="fill:#fafafa"/>
               </svg>
