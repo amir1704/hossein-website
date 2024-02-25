@@ -13,8 +13,9 @@ export default {
       thgray: {
         100: '#fbfbfb',
         200: '#f6f6f6',
+        250: '#f2f2f2',
         300: '#efefef',
-        400: '#414141'
+        400: '#414141',
       },
       thwhite: '#fff',
       thblack: {
