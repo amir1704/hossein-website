@@ -21,6 +21,7 @@ export default {
       thwhite: '#fff',
       thblack: {
         100: '#293340',
+        150: '#222a41',
         200: '#000'
       },
       thred: '#db0021',

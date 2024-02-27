@@ -50,13 +50,16 @@ export default function () {
     // const getSetting = async (token: string) => {
     //       return await $fetch(`${WP_URL}/wp-json/wp/v2/settings`,{headers: {Authorization: `Bearer ${token}` }});
     // }
-
+    const getWidgets = async (sidebar: string) => {
+        return get(`widgets?sidebar=${sidebar}&_fields=rendered`);
+    };
     return {
         get,
         getPosts,
         getPost,
         getCategories,
         getCategory,
-        getFrontPage
+        getFrontPage,
+        getWidgets
     };
 }

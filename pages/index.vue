@@ -5,7 +5,7 @@ const player = ref(null);
 const play = ref(true);
 const slider = ref(null);
 
-const setting = useSettingStore().setting;
+
 const projectCategories = ref([]);
 const projectCategory = ref(null);
 const projects = ref([]);
@@ -15,8 +15,10 @@ const testimonial = ref({});
 
 const partners = ref([]);
 
+const blogs = ref([]);
+const setting = ref(useSettingStore().frontPage);
 useHead({
-  title: setting.title,
+  title: useSettingStore().setting.title,
 })
 const getActive = (index) => {
   testimonial.value = testimonials.value[index];
@@ -40,7 +42,6 @@ const showFilter = () => {
 const {data, error} = await useWpApi().getPosts('project_categories',1,20,'id,name');
 if(!error.value){
   projectCategories.value = data.value;
-  console.log(projectCategories.value)
 }
 
 const getProjects = async (category = null) => {
@@ -77,11 +78,22 @@ const getPartners = async () => {
     partners.value = data.value;
   }
 }
+
+const getBlogs = async () => {
+
+  const {data, error} = await useWpApi().getPosts('posts',1,4,'id,title,excerpt,slug,featured_media,featured_media_src_url');
+  if(!error.value){
+    blogs.value = data.value;
+  }
+}
+
 await getProjects();
 
 await getTestimonials();
 
 await getPartners();
+
+await getBlogs();
 
 </script>
 
@@ -716,6 +728,33 @@ await getPartners();
 
     </div>
   </section>
+  <section class="callAction mt-44 lg:mt-52 xl:mt-80">
+    <div class="grid grid-cols-12 xl:gap-24">
+      <div class="col-span-12 xl:col-span-5">
+        <NuxtImg :src="setting.call_image" class="h-auto max-w-full" />
+      </div>
+      <div class="col-span-12 xl:col-span-7 mt-14 xl:mt-0 text-center xl:text-start">
+        <svg class="mx-auto xl:mx-0" data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">
+          <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>
+          <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>
+        </svg>
+        <h2 class="text-thblack-200 font-bold text-xl mt-10 px-28 xl:px-0">
+          {{ setting.call_title }}
+        </h2>
+        <p class="text-thblack-100 text-xl mt-2 px-12 xl:px-0">
+          {{ setting.call_content }}
+        </p>
+        <div class="flex ">
+          <NuxtLink :to="setting.call_button_link" class="bg-thred text-thwhite font-light font-xl min-w-48 px-20 py-6 flex flex-row content-center mt-10 mx-auto xl:mx-0">
+            <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
+            </svg>
+            <span>{{ setting.call_button_text }}</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="testimonials mt-44 lg:mt-52 xl:mt-72">
     <div class="grid grid-cols-12">
       <div class="col-span-12 xl:col-span-6 flex justify-center xl:justify-start">
@@ -852,31 +891,37 @@ await getPartners();
       </div>
     </div>
   </section>
-  <section class="callAction mt-44 lg:mt-52 xl:mt-80">
-    <div class="grid grid-cols-12 xl:gap-24">
-      <div class="col-span-12 xl:col-span-5">
-        <NuxtImg src="/images/callAction.webp" class="h-auto max-w-full" />
-      </div>
-      <div class="col-span-12 xl:col-span-7 mt-14 xl:mt-0 text-center xl:text-start">
-        <svg class="mx-auto xl:mx-0" data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">
-          <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>
-          <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>
-        </svg>
-        <h2 class="text-thblack-200 font-bold text-xl mt-10 px-28 xl:px-0">
-          Gregory Hayes - CEO of photoin.id
-        </h2>
-        <p class="text-thblack-100 text-xl mt-2 px-12 xl:px-0">
-          “ Double Square did excellent work on photoin.id. The project was a great success. They not only deliver innovative web and mobile applications but also are very committed to deep understand the needs of their clients. “
-        </p>
-        <div class="flex ">
-          <NuxtLink to="/" class="bg-thred text-thwhite font-light font-xl min-w-48 px-20 py-6 flex flex-row content-center mt-10 mx-auto xl:mx-0">
-            <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-              <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
-            </svg>
-            <span>MORE</span>
-          </NuxtLink>
+  <section class="blogs mt-44 lg:mt-52 xl:mt-72 group">
+    <div class="grid grids-col-12 place-items-center">
+      <h1 class="text-thblack-100 text-2xl">
+        Our Blogs
+      </h1>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-14">
+        <div class="flex flex-col" v-for="(blog,index) in blogs">
+          <div class="image" :class="index % 2 == 1? 'md:order-last': ''">
+            <NuxtImg :src="blog.featured_media_src_url" class="w-full" />
+          </div>
+          <div class="text py-[65px] px-8">
+            <h2 class="text-[28px] text-thblack-200 font-light">{{blog.title.rendered}}</h2>
+            <div class="content text-xl text-thblack-150 font-light mt-4" v-html="blog.excerpt.rendered">
+            </div>
+            <div class="link flex flex-row mt-11">
+              <NuxtLink class="flex flex-row items-center" to="/" :to-example="blog.slug" >
+                <span class="text-sm text-thred font-medium mr-9">Read more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30.758" height="15.142" viewBox="0 0 30.758 15.142">
+                <g data-name="Group 9990">
+                  <g data-name="Group 5">
+                    <path data-name="Stroke 1" d="M28.758.5H0" transform="translate(1 7.071)" style="fill:none;stroke:#e02020;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:2px"/>
+                    <path data-name="Stroke 3" d="m0 0 5.135 6.162L0 12.325" transform="translate(24.623 1.409)" style="fill:none;stroke:#e02020;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:2px"/>
+                  </g>
+                </g>
+              </svg>
+              </NuxtLink>
+
+            </div>
+          </div>
         </div>
-      </div>
     </div>
   </section>
 </template>
