@@ -10,6 +10,7 @@ export default {
   ],
   theme: {
     colors:{
+      transparent: 'transparent',
       thgray: {
         100: '#fbfbfb',
         200: '#f6f6f6',
@@ -33,7 +34,7 @@ export default {
         'heebo': ['Heebo','Arial','sans-serif'],
       },
       animation: {
-        'loop-scroll': 'loop-scroll 50s linear infinite',
+        'loop-scroll': 'loop-scroll 60s linear infinite',
       },
       keyframes: {
         'loop-scroll': {

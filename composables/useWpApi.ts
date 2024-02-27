@@ -9,16 +9,17 @@ export default function () {
     };
 
     const getPosts = async (
-        // category?: number,
         cpt: string = 'posts',
         page: number = 1,
         perPage: number = 20,
-        fields: string = "author,id,excerpt,title,link,slug,date,featured_media,featured_media_src_url"
+        fields: string = "author,id,excerpt,title,link,slug,date,featured_media,featured_media_src_url",
+        taxonomy?: string,
+        taxonomy_ids?: string
     ) => {
         let query: string = `${cpt}?page=${page}&per_page=${perPage}&_embed=1&_fields=${fields}`;
-        // if (category) {
-        //     query += `&categories=${category}`;
-        // }
+        if (taxonomy) {
+            query += `&${taxonomy}=${taxonomy_ids}`;
+        }
         return get<Post[]>(query);
     };
 
