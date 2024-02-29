@@ -897,12 +897,12 @@ await getBlogs();
         Our Blogs
       </h1>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 mt-14">
         <div class="flex flex-col" v-for="(blog,index) in blogs">
           <div class="image" :class="index % 2 == 1? 'md:order-last': ''">
             <NuxtImg :src="blog.featured_media_src_url" class="w-full" />
           </div>
-          <div class="text py-[32px] px-8 2xl:max-h-[336px]">
+          <div class="text py-5 flex flex-col justify-center px-8 md:h-[352px] lg:h-[448px] xl:h-[560px] 2xl:h-[336px]">
             <h2 class="text-[28px] text-thblack-200 font-light">{{blog.title.rendered}}</h2>
             <div class="content text-xl text-thblack-150 font-light mt-4" v-html="blog.excerpt.rendered">
             </div>
