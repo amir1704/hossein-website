@@ -27,7 +27,7 @@ if(!error.value){
       <main class="container mx-auto mt-11 lg:mt-24">
         <slot></slot>
       </main>
-      <footer class="bg-thred mt-44 lg:mt-64">
+      <footer class="bg-thred -mt-8 z-10 relative">
           <div class="container mx-auto ">
             <Footer />
           </div>

@@ -902,7 +902,7 @@ await getBlogs();
           <div class="image" :class="index % 2 == 1? 'md:order-last': ''">
             <NuxtImg :src="blog.featured_media_src_url" class="w-full" />
           </div>
-          <div class="text py-[65px] px-8">
+          <div class="text py-[32px] px-8 2xl:max-h-[336px]">
             <h2 class="text-[28px] text-thblack-200 font-light">{{blog.title.rendered}}</h2>
             <div class="content text-xl text-thblack-150 font-light mt-4" v-html="blog.excerpt.rendered">
             </div>
@@ -922,6 +922,16 @@ await getBlogs();
             </div>
           </div>
         </div>
+    </div>
+  </section>
+  <section class="banner mt-44 lg:mt-52 xl:mt-72 group">
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 md:col-span-6 flex justify-center items-center" v-html="setting.upf_image_left">
+
+      </div>
+      <div class="col-span-12 md:col-span-6 flex justify-center items-center" v-html="setting.upf_image_right">
+
+      </div>
     </div>
   </section>
 </template>
