@@ -24,6 +24,9 @@ if(!error.value){
 }
 </script>
 <template>
+  <div class="container mx-auto">
+
+
         <div class="grid grid-cols-12">
             <div class=" xl:col-span-4 hidden xl:flex items-center xl:justify-start ">
               <button aria-controls="default-sidebar" type="button" class="flex text-thblack-100 text-xl focus:outline-none" @click="()=>{showMenu=!showMenu;}">
@@ -220,4 +223,5 @@ if(!error.value){
       </div>
     </div>
   </Modal>
+  </div>
 </template>

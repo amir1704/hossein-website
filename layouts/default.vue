@@ -20,14 +20,16 @@ if(!error.value){
 
 </script>
 <template>
-      <header class="container mx-auto mt-16 lg:mt-20">
+
+      <header class="bg-thgray-100 z-10 relative pt-16 lg:pt-20">
         <Header />
       </header>
 
-      <main class="container mx-auto mt-11 lg:mt-24">
+      <main class="bg-thgray-100 z-10 relative pt-11 lg:pt-24">
         <slot></slot>
       </main>
-      <footer class="bg-thred -mt-8 z-10 relative">
+      <div class="h-[380px] lg:h-[600px] bg-transparent"></div>
+      <footer class="bg-thred -mt-8 fixed bottom-0 w-full h-[380px] lg:h-[600px]">
           <div class="container mx-auto ">
             <Footer />
           </div>

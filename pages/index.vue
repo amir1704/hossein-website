@@ -98,7 +98,7 @@ await getBlogs();
 </script>
 
 <template>
-  <section class="projects">
+  <section class="container projects">
     <div class="grid grid-cols-12">
       <div class="col-span-12 flex flex-col lg:hidden justify-center">
         <button @click="showFilter" class="flex justify-center text-thblack-100 text-xl focus:outline-none">
@@ -142,9 +142,9 @@ await getBlogs();
 
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 mt-12">
-        <div class="project relative" v-for="project in projects">
+        <div class="project relative border-[.5px] border-[#d8d8d8]" v-for="project in projects">
           <NuxtLink class="w-full h-full" to="/" :to-sample="`/project/${project.slug}`">
-            <NuxtImg :src="project.featured_media_src_url" class="w-full" />
+            <NuxtImg :src="project.featured_media_src_url" class="w-full" alt="project.slug" />
           </NuxtLink>
 <!--          <button class="absolute top-4 right-4">-->
 <!--            <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">-->
@@ -175,7 +175,7 @@ await getBlogs();
       </div>
     </div>
   </section>
-  <section class="services mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="container services mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grids-col-12 place-items-center">
       <h1 class="text-thblack-100 text-2xl">
         Our Services
@@ -728,7 +728,7 @@ await getBlogs();
 
     </div>
   </section>
-  <section class="callAction mt-44 lg:mt-52 xl:mt-80">
+  <section class="container callAction mt-44 lg:mt-52 xl:mt-80">
     <div class="grid grid-cols-12 xl:gap-24">
       <div class="col-span-12 xl:col-span-5">
         <NuxtImg :src="setting.call_image" class="h-auto max-w-full" />
@@ -755,7 +755,7 @@ await getBlogs();
       </div>
     </div>
   </section>
-  <section class="testimonials mt-44 lg:mt-52 xl:mt-72">
+  <section class="container testimonials mt-44 lg:mt-52 xl:mt-72">
     <div class="grid grid-cols-12">
       <div class="col-span-12 xl:col-span-6 flex justify-center xl:justify-start">
         <h1 class="text-thblack-100 text-2xl">Testimonials</h1>
@@ -838,7 +838,7 @@ await getBlogs();
       </div>
     </div>
   </section>
-  <section class="partners mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="container partners mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grids-col-12 place-items-center">
         <h1 class="text-thblack-100 text-2xl">
             Our Partners
@@ -880,18 +880,8 @@ await getBlogs();
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-12 mt-24">
-      <div class="col-span-12 flex justify-center">
-        <NuxtLink to="/" class="bg-thred text-thwhite font-light font-xl min-w-48 px-20 py-6 flex flex-row content-center">
-          <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
-          </svg>
-          <p>MORE</p>
-        </NuxtLink>
-      </div>
-    </div>
   </section>
-  <section class="blogs mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="container blogs mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grids-col-12 place-items-center">
       <h1 class="text-thblack-100 text-2xl">
         Our Blogs
@@ -908,7 +898,7 @@ await getBlogs();
             </div>
             <div class="link flex flex-row mt-11">
               <NuxtLink class="flex flex-row items-center" to="/" :to-example="blog.slug" >
-                <span class="text-sm text-thred font-medium mr-9">Read more</span>
+                <span class="text-base text-thred font-medium mr-9">Read more</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30.758" height="15.142" viewBox="0 0 30.758 15.142">
                 <g data-name="Group 9990">
                   <g data-name="Group 5">
@@ -924,7 +914,7 @@ await getBlogs();
         </div>
     </div>
   </section>
-  <section class="banner mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="container banner mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grid-cols-12">
       <div class="col-span-12 md:col-span-6 flex justify-center items-center" v-html="setting.upf_image_left">
 
