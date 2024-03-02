@@ -23,8 +23,14 @@ export default function () {
         return get<Post[]>(query);
     };
 
-    const getPost = async (slug: string) => {
-        return get<Post[]>(`posts?slug=${slug}&_embed=1`)[0];
+    const getPost = async (cpt: string = 'posts',slug: string) => {
+        const {data, error} = await get(`${cpt}?slug=${slug}&_embed=1`);
+        if(!error.value){
+            return data.value[0]
+        }
+        else{
+            return null
+        }
     };
 
     const getCategories = async (fields: string = "name,slug,count") => {
