@@ -182,7 +182,7 @@ await getBlogs();
       </h1>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4  xl:grid-cols-6 mt-12">
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.609" height="86.145" viewBox="0 0 86.609 86.145">
           <g data-name="Group 10139">
             <g data-name="Outline Color">
@@ -204,7 +204,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">3D Design</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="85.776" height="86.145" viewBox="0 0 85.776 86.145">
           <g data-name="Group 10138">
             <g data-name="Group 10031">
@@ -359,7 +359,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Graphic Design</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.16" height="85" viewBox="0 0 86.16 85">
           <g data-name="Group 10148">
             <g data-name="Group 10007">
@@ -408,7 +408,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Digital Marketing</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.145" height="85" viewBox="0 0 86.145 85">
           <defs>
             <clipPath id="v3i5p7cj6a">
@@ -456,7 +456,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Website</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="84" height="85" viewBox="0 0 84 85">
           <g data-name="Group 10142">
             <g data-name="Group 10003" transform="translate(-.475 .364)">
@@ -481,7 +481,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Social Media</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="85" height="86.129" viewBox="0 0 85 86.129">
           <g data-name="Group 10151">
             <g data-name="Group 10149">
@@ -517,7 +517,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Website</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.245" height="86.145" viewBox="0 0 86.245 86.145">
           <g data-name="Group 10140">
             <g data-name="Group 10004">
@@ -550,7 +550,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Seo</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="84" height="86.381" viewBox="0 0 84 86.381">
           <g data-name="Group 10147">
             <g data-name="Group 10013">
@@ -589,7 +589,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Content Plan</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86.381" viewBox="0 0 86 86.381">
           <g data-name="Group 10152">
             <g data-name="Group 10150">
@@ -612,7 +612,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Seo</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.145" height="86" viewBox="0 0 86.145 86">
           <g data-name="Group 10144">
             <g data-name="Group 10005">
@@ -659,7 +659,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Strategic Plan</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.129" height="86.194" viewBox="0 0 86.129 86.194">
           <g data-name="Group 10145">
             <g data-name="Group 10011">
@@ -703,7 +703,7 @@ await getBlogs();
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Videography</p>
       </div>
-      <div class="flex flex-col justify-center items-center py-12 xl:py-20 border border-[#d8d8d8]" >
+      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="85" height="86.413" viewBox="0 0 85 86.413">
           <g transform="translate(2.321)" data-name="Group 10146">
             <rect data-name="Rectangle 2888" width="80.119" height="55.215" rx="4" transform="translate(.548 9.598)" style="fill:#0c132b"/>
@@ -845,38 +845,38 @@ await getBlogs();
         </h1>
     </div>
     <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" >
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
         <div class="flex justify-center items-center" v-for="partner in partners.slice(0,7)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" aria-hidden="true">
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
         <div class="flex justify-center items-center" v-for="partner in partners.slice(0,7)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
     </div>
     <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" >
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
         <div class="flex justify-center items-center" v-for="partner in partners.slice(7,14)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" aria-hidden="true">
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
         <div class="flex justify-center items-center" v-for="partner in partners.slice(7,14)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
     </div>
     <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" >
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
         <div class="flex justify-center items-center" v-for="partner in partners.slice(11,18)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused" aria-hidden="true">
+      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
         <div class="flex justify-center items-center" v-for="partner in partners.slice(11,18)">
-          <NuxtImg class="max-w-24 max-h-24" :src="partner.featured_media_src_url" />
+          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
         </div>
       </div>
     </div>

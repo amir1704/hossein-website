@@ -21,7 +21,7 @@ if(!error.value){
 </script>
 <template>
 
-      <header class="bg-thgray-100 z-10 relative pt-16 lg:pt-20">
+      <header class="bg-thgray-100 z-20 relative pt-16 lg:pt-20">
         <Header />
       </header>
 

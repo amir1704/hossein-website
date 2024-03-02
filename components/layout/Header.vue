@@ -135,7 +135,7 @@ if(!error.value){
             </div>
         </div>
       <GrayBack :active="showMenu" />
-      <aside id="default-sidebar" class="menu fixed top-0 left-0 z-40 w-full md:w-3/4 lg:w-2/3 xl:w-1/3  h-screen transition-transform -translate-x-full" :class="showMenu ? 'translate-x-0' : ''" aria-label="Sidenav" >
+      <aside id="default-sidebar" class="menu fixed top-0 left-0 z-50 w-full md:w-3/4 lg:w-2/3 xl:w-1/3  h-screen transition-transform -translate-x-full" :class="showMenu ? 'translate-x-0' : ''" aria-label="Sidenav" >
         <div class="overflow-y-auto h-full bg-thred p-8 lg:p-14 xl:p-24">
           <div class="grid grid-cols-12">
             <div class="col-span-12 flex justify-start">
