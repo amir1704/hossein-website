@@ -143,7 +143,7 @@ await getBlogs();
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 mt-12">
         <div class="project relative border-[.5px] border-[#d8d8d8]" v-for="project in projects">
-          <NuxtLink class="w-full h-full" to="/" :to-sample="`/project/${project.slug}`">
+          <NuxtLink class="w-full h-full" :to="`/projects/${project.slug}`">
             <NuxtImg :src="project.featured_media_src_url" class="w-full" alt="project.slug" />
           </NuxtLink>
 <!--          <button class="absolute top-4 right-4">-->

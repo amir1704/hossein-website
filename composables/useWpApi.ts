@@ -14,11 +14,15 @@ export default function () {
         perPage: number = 20,
         fields: string = "author,id,excerpt,title,link,slug,date,featured_media,featured_media_src_url",
         taxonomy?: string,
-        taxonomy_ids?: string
+        taxonomy_ids?: string|number,
+        exclude?: string,
     ) => {
         let query: string = `${cpt}?page=${page}&per_page=${perPage}&_embed=1&_fields=${fields}`;
         if (taxonomy) {
             query += `&${taxonomy}=${taxonomy_ids}`;
+        }
+        if(exclude) {
+            query += `&exclude=${exclude}`;
         }
         return get<Post[]>(query);
     };

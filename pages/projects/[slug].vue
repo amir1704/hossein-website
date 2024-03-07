@@ -6,12 +6,30 @@ const slug = useRoute().params?.slug;
 const slider = ref(null);
 const video = ref(null);
 const project = ref(null);
+const testimonial = ref(null);
 const play = ref(false);
-project.value = await useWpApi().getPost('projects', slug);
+const similars = ref([]);
 
+const player = ref(null);
+const playAudio = ref(true);
+project.value = await useWpApi().getPost('projects', slug);
+if(project.value){
+  const {data,error} = await useWpApi().get(`testimonials/${project.value.acf.testimonial.ID}?_embed=1`);
+  if(!error.value){
+    testimonial.value = data.value;
+  }
+  if(project.value.project_categories?.length){
+    const similar = await useWpApi().getPosts(`projects`,1,4,'id,slug,featured_media,featured_media_src_url','project_category',project.value.project_categories[0],project.value.id);
+    if(!similar.error.value){
+      similars.value = similar.data.value;
+    }
+  }
+}
 useHead({
   title: project.value.title.rendered,
 });
+
+
 
 
 const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a4691]','bg-[#7f48c6]','bg-[#37be40]','bg-[#db0021]']);
@@ -104,11 +122,70 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
           <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.running_time }}</p>
         </div>
       </div>
-      <div class="flex flex-row flex-wrap pt-12 items-center">
+      <div class="flex flex-row flex-wrap pt-12 items-center" v-if="project._embedded['wp:term']">
         <span class="text-[21px] text-thblack-200 font-medium text-left">Specializations used:</span>
         <template v-for="(tag, index) in project._embedded['wp:term'][0]">
           <span class="text-[13px] font-medium text-thwhite py-3 px-5 mx-1.5 my-1.5 max-w-[101px]" :class="classArray[index%7]">{{tag.name}}</span>
         </template>
+      </div>
+    </div>
+  </div>
+  <div class="mt-48 flex flex-col justify-center bg-thgray-250 text-center" v-if="testimonial">
+    <NuxtImg class="w-[100px] rounded-full -mt-12 mx-auto" :src="testimonial.featured_media_src_url" />
+    <h3 class="mt-7 text-thblack-200 text-[23px] font-semibold">{{testimonial.title.rendered}}</h3>
+    <p class="mt-1 text-[19px] text-thblack-100">{{testimonial.acf.teller}}</p>
+    <NuxtImg class="mt-7 mx-auto md:hidden" src="/images/wave.png" />
+    <NuxtImg class="mt-7 mx-auto hidden md:block" src="/images/wave-big.png" />
+    <button class="bg-thgray-100 rounded-full w-14 h-14 flex justify-center items-center my-8 mx-auto">
+      <audio ref="player" :src="testimonial.acf.audio"></audio>
+      <svg v-if="playAudio" @click="()=>{playAudio = false; player.play();}" xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
+        <path data-name="Polygon 4" d="M7.63 1.535a1 1 0 0 1 1.74 0l6.784 11.972a1 1 0 0 1-.87 1.493H1.716a1 1 0 0 1-.87-1.493z" transform="rotate(90 7.5 7.5)" style="fill:#db0021"/>
+      </svg>
+      <svg v-else @click="()=>{playAudio = true; player.pause();}" fill="#db0021" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                  <path d="M224,435.8V76.1c0-6.7-5.4-12.1-12.2-12.1h-71.6c-6.8,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6   C218.6,448,224,442.6,224,435.8z"/>
+                  <path d="M371.8,64h-71.6c-6.7,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6c6.7,0,12.2-5.4,12.2-12.2V76.1   C384,69.4,378.6,64,371.8,64z"/>
+                </g>
+              </svg>
+    </button>
+  </div>
+  <div class="similar my-48" v-if="similars.length">
+    <div class="grid grids-col-12 place-items-center">
+      <h1 class="text-thblack-100 text-3xl">
+        Similar projects
+      </h1>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 mt-12">
+      <div class="project relative border-[.5px] border-[#d8d8d8]" v-for="project in similars">
+        <NuxtLink class="w-full h-full" :to="`/projects/${project.slug}`">
+          <NuxtImg :src="project.featured_media_src_url" class="w-full" :alt="project.slug" />
+        </NuxtLink>
+        <!--          <button class="absolute top-4 right-4">-->
+        <!--            <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">-->
+        <!--              <defs>-->
+        <!--                <filter id="hyq3wtdqja" x="0" y="0" width="35.378" height="35.379" filterUnits="userSpaceOnUse">-->
+        <!--                  <feOffset dx="-1" dy="1"/>-->
+        <!--                  <feGaussianBlur stdDeviation="3" result="blur"/>-->
+        <!--                  <feFlood flood-opacity=".161"/>-->
+        <!--                  <feComposite operator="in" in2="blur"/>-->
+        <!--                  <feComposite in="SourceGraphic"/>-->
+        <!--                </filter>-->
+        <!--              </defs>-->
+        <!--              <g style="filter:url(#hyq3wtdqja)">-->
+        <!--                <path data-name="Union 1" d="M2.793 17.379A2.793 2.793 0 0 1 0 14.586V5.9a2.793 2.793 0 0 1 2.793-2.8h8.689a2.793 2.793 0 0 1 2.793 2.8v8.689a2.793 2.793 0 0 1-2.794 2.793zM15.517 4.966a3.1 3.1 0 0 0-3.1-3.1H3.264A2.8 2.8 0 0 1 5.9 0h8.689a2.791 2.791 0 0 1 2.793 2.794v8.689a2.8 2.8 0 0 1-1.861 2.633z" transform="translate(10 8)" style="fill:#fff"/>-->
+        <!--              </g>-->
+        <!--            </svg>-->
+        <!--          </button>-->
+      </div>
+    </div>
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 flex justify-center mt-16">
+        <NuxtLink to="/" class="bg-thred text-thwhite min-w-48 font-light font-xl px-16 py-6 flex flex-row content-center">
+          <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
+          </svg>
+          <p>MORE</p>
+        </NuxtLink>
       </div>
     </div>
   </div>
