@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/image",'@pinia/nuxt'],
+  modules: ["@nuxt/image",'@pinia/nuxt','@vueuse/nuxt',],
   runtimeConfig: {
     public: {
       wpUri: process.env.WP_URI,

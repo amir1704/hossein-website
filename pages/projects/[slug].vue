@@ -1,7 +1,8 @@
 <script setup>
 
 import useWpApi from "~/composables/useWpApi.ts";
-
+import { useFullscreen } from '@vueuse/core';
+import {UseFullscreen} from "@vueuse/components";
 const slug = useRoute().params?.slug;
 const slider = ref(null);
 const video = ref(null);
@@ -9,6 +10,9 @@ const project = ref(null);
 const testimonial = ref(null);
 const play = ref(false);
 const similars = ref([]);
+
+
+
 
 const player = ref(null);
 const playAudio = ref(true);
@@ -36,11 +40,11 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
 </script>
 
 <template>
-<div class="container flex flex-col justify-center">
-  <h2 class="text-[22px] text-thblack-200 text-center">
+<div class="flex flex-col justify-center">
+  <h2 class="container text-[22px] text-thblack-200 text-center">
     {{project.title.rendered}}
   </h2>
-  <div class="text-center text-thblack-100 mt-10" v-html="project.excerpt.rendered">
+  <div class="container text-center text-thblack-100 mt-10" v-html="project.excerpt.rendered">
 
   </div>
   <div class="relative mt-16">
@@ -58,8 +62,17 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
         ref="slider"
     >
       <swiper-slide v-for="(image,index) in project.acf.images">
-        <div class="group mx-0 md:mx-0.5 transition-all duration-300">
-          <NuxtImg class="h-auto w-full" :src="image.guid" />
+        <div class="group mx-0 md:mx-0.5 transition-all duration-300 relative">
+          <UseFullscreen v-slot="{ toggle }">
+            <NuxtImg class="h-auto w-full" :src="image" />
+            <div class="absolute top-0 right-0 bg-thblack-200 opacity-50 w-full h-full hidden justify-center items-center group-hover:flex transition-all duration-300">
+              <button @click="toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="51.528" height="37.778" viewBox="0 0 51.528 37.778">
+                  <path data-name="Path 29663" d="M39.794 21.588a14.6 14.6 0 1 1-13.034-8 2.264 2.264 0 0 1 .721.1 1.7 1.7 0 0 1 1.133 1.288 7.53 7.53 0 0 0 7.332 5.976 6.894 6.894 0 0 0 1.837-.24 1.738 1.738 0 0 1 2.011.876zM26.76 5C15.015 5 2.977 15.3 1.02 27.032a1.715 1.715 0 0 0 3.38.568C5.931 18.549 15.8 8.434 26.76 8.434S47.59 18.549 49.1 27.6a1.729 1.729 0 0 0 1.7 1.442 1.766 1.766 0 0 0 .292-.017 1.724 1.724 0 0 0 1.408-1.976C50.544 15.3 38.506 5 26.76 5z" transform="translate(-.997 -5)" style="fill:#fff"/>
+                </svg>
+              </button>
+            </div>
+          </UseFullscreen>
         </div>
       </swiper-slide>
     </swiper-container>
@@ -82,14 +95,14 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
       </button>
     </div>
   </div>
-  <div class="mt-28 [&_.aligncenter]:mx-auto text-thblack-100" v-html="project.content.rendered"></div>
-  <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-28 mt-28">
-    <div class="relative">
-      <video class="h-full" ref="video" @playing="play=true;" @pause="play=false">
+  <div class="container  mt-28 [&_.aligncenter]:mx-auto text-thblack-100" v-html="project.content.rendered"></div>
+  <div class="container  grid grid-cols-1 lg:grid-cols-2 lg:gap-28 mt-28">
+    <div class="relative" v-if="project.acf.is_video">
+      <video class="h-full" ref="video" @play="play=true; video.setAttribute('controls','')" @pause="play=false; video.removeAttribute('controls')">
         <source :src="project.acf.video" type="video/mp4">
       </video>
-      <div class="absolute w-full h-full flex items-center justify-center top-0 right-0">
-        <button @click="() => {video.play(); }" :class="play?'hidden':''">
+      <div class="absolute w-full h-full items-center justify-center top-0 right-0" :class="play?'hidden':'flex'">
+        <button @click="() => {video.play(); }" >
           <svg xmlns="http://www.w3.org/2000/svg" width="255.002" height="255.001" viewBox="0 0 255.002 255.001">
             <defs>
               <filter id="j3lztx9hra" x="0" y="0" width="255.002" height="255.001" filterUnits="userSpaceOnUse">
@@ -107,30 +120,33 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
         </button>
       </div>
     </div>
+    <div class="relative" v-else>
+      <NuxtImg :src="project.acf.video" class="w-full" />
+    </div>
     <div class="divide-y divide-thgray-350">
       <div class="flex flex-row pb-12">
         <div>
-          <p class="text-[21px] text-thblack-200 font-medium text-left">Customer:</p>
-          <p class="text-[21px] text-thblack-200 font-medium text-left mt-12">Website:</p>
-          <p class="text-[21px] text-thblack-200 font-medium text-left mt-12">Date:</p>
-          <p class="text-[21px] text-thblack-200 font-medium text-left mt-12">Running time:</p>
+          <p class="text-[21px] text-thblack-200 text-left">Customer:</p>
+          <p class="text-[21px] text-thblack-200 text-left mt-12">Website:</p>
+          <p class="text-[21px] text-thblack-200 text-left mt-12">Date:</p>
+          <p class="text-[21px] text-thblack-200 text-left mt-12">Running time:</p>
         </div>
         <div class="ml-20">
           <p class="text-[21px] text-thblack-100 text-left">{{ project.acf.customer }}</p>
-          <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.website }}</p>
+          <p class="text-[21px] text-thblack-100 text-left mt-12"><NuxtLink :to="project.acf.website">{{ project.acf.website }}</NuxtLink></p>
           <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.date }}</p>
           <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.running_time }}</p>
         </div>
       </div>
       <div class="flex flex-row flex-wrap pt-12 items-center" v-if="project._embedded['wp:term']">
-        <span class="text-[21px] text-thblack-200 font-medium text-left">Specializations used:</span>
+        <span class="text-[21px] text-thblack-200 text-left">Specializations used:</span>
         <template v-for="(tag, index) in project._embedded['wp:term'][0]">
           <span class="text-[13px] font-medium text-thwhite py-3 px-5 mx-1.5 my-1.5 max-w-[101px]" :class="classArray[index%7]">{{tag.name}}</span>
         </template>
       </div>
     </div>
   </div>
-  <div class="mt-48 flex flex-col justify-center bg-thgray-250 text-center" v-if="testimonial">
+  <div class="container  mt-48 flex flex-col justify-center bg-thgray-250 text-center" v-if="testimonial">
     <NuxtImg class="w-[100px] rounded-full -mt-12 mx-auto" :src="testimonial.featured_media_src_url" />
     <h3 class="mt-7 text-thblack-200 text-[23px] font-semibold">{{testimonial.title.rendered}}</h3>
     <p class="mt-1 text-[19px] text-thblack-100">{{testimonial.acf.teller}}</p>
@@ -149,9 +165,9 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
               </svg>
     </button>
   </div>
-  <div class="similar my-48" v-if="similars.length">
+  <div class="container  similar my-48" v-if="similars.length">
     <div class="grid grids-col-12 place-items-center">
-      <h1 class="text-thblack-100 text-3xl">
+      <h1 class="text-thblack-100 text-[22px]">
         Similar projects
       </h1>
     </div>
@@ -180,7 +196,7 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
     </div>
     <div class="grid grid-cols-12">
       <div class="col-span-12 flex justify-center mt-16">
-        <NuxtLink to="/" class="bg-thred text-thwhite min-w-48 font-light font-xl px-16 py-6 flex flex-row content-center">
+        <NuxtLink to="/projects" class="bg-thred text-thwhite min-w-48 font-light font-xl px-16 py-6 flex flex-row content-center">
           <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
             <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
           </svg>
