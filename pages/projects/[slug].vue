@@ -133,7 +133,7 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
         </div>
         <div class="ml-20">
           <p class="text-[21px] text-thblack-100 text-left">{{ project.acf.customer }}</p>
-          <p class="text-[21px] text-thblack-100 text-left mt-12"><a :href="project.acf.website">{{ project.acf.website }}</a></p>
+          <p class="text-[21px] text-thblack-100 text-left mt-12"><a v-if="project.acf.website" :href="project.acf.website">{{ project.acf.website }}</a></p>
           <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.date }}</p>
           <p class="text-[21px] text-thblack-100 text-left mt-12">{{ project.acf.running_time }}</p>
         </div>
