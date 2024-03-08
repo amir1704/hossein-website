@@ -47,7 +47,7 @@ const classArray = ref(['bg-[#0075db]','bg-[#ff9113]','bg-[#ff00aa]','bg-[#1a469
   <div class="container text-center text-thblack-100 mt-10" v-html="project.excerpt.rendered">
 
   </div>
-  <div class="relative mt-16">
+  <div class="relative mt-16" v-if="project.acf.images">
     <swiper-container
         :slides-per-view="1"
         :breakpoints="{
