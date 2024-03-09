@@ -63,6 +63,9 @@ export default function () {
     const getWidgets = async (sidebar: string) => {
         return get(`widgets?sidebar=${sidebar}&_fields=rendered`);
     };
+    const getComments = async (id: number) => {
+        return get(`comments?post=${id}&_embed=1`);
+    };
     return {
         get,
         getPosts,
@@ -70,6 +73,7 @@ export default function () {
         getCategories,
         getCategory,
         getFrontPage,
-        getWidgets
+        getWidgets,
+        getComments
     };
 }
