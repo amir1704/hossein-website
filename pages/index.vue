@@ -73,7 +73,7 @@ const getTestimonials = async () => {
 
 const getPartners = async () => {
 
-  const {data, error} = await useWpApi().getPosts('partners',1,24,'id,title,featured_media,featured_media_src_url');
+  const {data, error} = await useWpApi().getPosts('partners',1,100,'id,title,featured_media,featured_media_src_url');
   if(!error.value){
     partners.value = data.value;
   }
@@ -101,7 +101,7 @@ await getBlogs();
   <section class="container projects">
     <div class="grid grid-cols-12">
       <div class="col-span-12 flex flex-col lg:hidden justify-center">
-        <button @click="showFilter" class="flex justify-center text-thblack-100 text-xl focus:outline-none">
+        <button @click="showFilter" class="flex justify-center text-thblack-100 text-xl focus:outline-none font-kamand">
           <svg class="w-[22px] h-[22px] mt-1 mr-1" xmlns="http://www.w3.org/2000/svg" width="29.439" height="29.44" viewBox="0 0 29.439 29.44">
             <g data-name="Group 9831">
               <path data-name="Path 29643" d="M9.247 12.778V2.562a.562.562 0 1 0-1.124 0v10.216a1.676 1.676 0 0 0 0 3.164v1.227a.562.562 0 0 0 1.124 0v-1.227a1.676 1.676 0 0 0 0-3.164zm-.562 2.144a.562.562 0 1 1 .562-.562.562.562 0 0 1-.562.561z" style="fill:#293340" transform="rotate(90 11.765 12.965)"/>
@@ -112,13 +112,13 @@ await getBlogs();
           </svg>
           <span>filter</span>
         </button>
-        <div ref="filters" class="flex-row flex-wrap justify-center hidden">
-          <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred"
+        <div ref="filters" class="flex-row flex-wrap justify-center hidden ">
+          <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred font-kamand"
                   :class="!projectCategory ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                   @click="getProjects(null)">
             All
           </button>
-          <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred"
+          <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred font-kamand"
                   :class="projectCategory == project_cat.id ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                   v-for="project_cat in projectCategories"
                   @click="getProjects(project_cat.id)">
@@ -127,12 +127,12 @@ await getBlogs();
         </div>
       </div>
       <div class="col-span-12 flex-row justify-center hidden lg:flex ">
-        <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300"
+        <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300 font-kamand"
                 :class="!projectCategory ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                 @click="getProjects(null)">
           All
         </button>
-        <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300"
+        <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300 font-kamand"
                 :class="projectCategory == project_cat.id ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                 v-for="project_cat in projectCategories"
                 @click="getProjects(project_cat.id)">
@@ -177,7 +177,7 @@ await getBlogs();
   </section>
   <section class="container services mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grids-col-12 place-items-center">
-      <h1 class="text-thblack-100 text-2xl">
+      <h1 class="text-thblack-100 text-2xl font-kamand">
         Our Services
       </h1>
     </div>
@@ -758,7 +758,7 @@ await getBlogs();
   <section class="container testimonials mt-44 lg:mt-52 xl:mt-72">
     <div class="grid grid-cols-12">
       <div class="col-span-12 xl:col-span-6 flex justify-center xl:justify-start">
-        <h1 class="text-thblack-100 text-2xl">Testimonials</h1>
+        <h1 class="text-thblack-100 text-2xl font-kamand">Testimonials</h1>
       </div>
       <div class="hidden xl:flex xl:col-span-6 justify-end">
         <NuxtLink to="/" class="text-thred text-2xl">
@@ -838,52 +838,21 @@ await getBlogs();
       </div>
     </div>
   </section>
-  <section class="container partners mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="partners mt-44 lg:mt-52 group">
     <div class="grid grids-col-12 place-items-center">
-        <h1 class="text-thblack-100 text-2xl">
+        <h1 class="text-thblack-100 text-2xl font-kamand">
             Our Partners
         </h1>
     </div>
-    <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(0,7)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
-      </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(0,7)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
-      </div>
-    </div>
-    <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(7,14)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
-      </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(7,14)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
-      </div>
-    </div>
-    <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" >
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(11,18)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
-      </div>
-      <div class="flex items-center justify-center xl:justify-start [&_div]:mx-10 [&_div]:my-12 [&_img]:max-w-none animate-loop-scroll group-hover:paused group-hover:[&_img]:blur-sm" aria-hidden="true">
-        <div class="flex justify-center items-center" v-for="partner in partners.slice(11,18)">
-          <NuxtImg class="max-w-24 max-h-24 hover:!blur-none transition-all duration-300" :src="partner.featured_media_src_url" />
-        </div>
+    <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-9 gap-x-12 gap-y-20 px-10 py-10">
+      <div v-for="partner in partners" :key="partner.id" class="flex items-center justify-center">
+        <NuxtImg v-if="partner.featured_media_src_url" :src="partner.featured_media_src_url" class="grayscale hover:grayscale-0 transition-all duration-300 max-w-[60px] max-h-[60px] sm:max-w-[70px] sm:max-h-[70px]" />
       </div>
     </div>
   </section>
   <section class="container blogs mt-44 lg:mt-52 xl:mt-72 group">
     <div class="grid grids-col-12 place-items-center">
-      <h1 class="text-thblack-100 text-2xl">
+      <h1 class="text-thblack-100 text-2xl font-kamand">
         Our Blogs
       </h1>
     </div>
