@@ -12,10 +12,10 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/image",'@pinia/nuxt','@vueuse/nuxt',],
   runtimeConfig: {
+    wpUsername: process.env.WP_USERNAME,
+    wpPassword: process.env.WP_PASSWORD,
     public: {
       wpUri: process.env.WP_URI,
-      wpUsername: process.env.WP_USERNAME,
-      wpPassword: process.env.WP_PASSWORD,
     },
   },
 })

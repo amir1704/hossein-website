@@ -3,6 +3,7 @@ import {useSettingStore} from "~/stores/useSettingStore.js";
 import useWpApi from "~/composables/useWpApi.ts";
 
 const setting = ref(useSettingStore().frontPage);
+console.log(setting);
 const menuItems = ref([]);
 const widgets = ref([]);
 const {data,error} = await useWpApi().get('menus/footer');
@@ -23,7 +24,7 @@ if(!widgetError.value){
     <div class="col-span-12 place-self-center">
       <NuxtLink to="/">
         <NuxtImg
-            :src="setting.logo" alt="logo"/>
+            :src="setting.logo_footer" alt="logo"/>
       </NuxtLink>
     </div>
     <div class="col-span-12 flex-row flex-wrap justify-center mt-14 hidden lg:flex">

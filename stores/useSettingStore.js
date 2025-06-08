@@ -5,9 +5,8 @@ export const useSettingStore = defineStore('setting', () => {
 
     const getToken = async () => {
         const config = useRuntimeConfig();
-        const data = await $fetch(`${config.public.wpUri}/wp-json/jwt-auth/v1/token`, {
+        const data = await $fetch(`/api/token`, {
             method: 'post',
-            body: { username: config.public.wpUsername, password: config.public.wpPassword },
         });
         token.value = data.token;
     };
