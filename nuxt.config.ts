@@ -11,6 +11,11 @@ export default defineNuxtConfig({
   },
 
   modules: ["@nuxt/image",'@pinia/nuxt','@vueuse/nuxt',],
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag)
+    }
+  },
   runtimeConfig: {
     wpUsername: process.env.WP_USERNAME,
     wpPassword: process.env.WP_PASSWORD,

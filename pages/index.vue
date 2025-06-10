@@ -110,9 +110,9 @@ await getBlogs();
               <path data-name="instagram(1)" d="M15.01 29.441h-.293c-2.308.006-4.44-.053-6.514-.179a8.707 8.707 0 0 1-5.019-1.9 8.056 8.056 0 0 1-2.707-4.37 19.366 19.366 0 0 1-.444-4.624C.019 17.293 0 16.019 0 14.724s.018-2.574.033-3.649a19.368 19.368 0 0 1 .445-4.624 8.056 8.056 0 0 1 2.707-4.37A8.707 8.707 0 0 1 8.2.181C10.277.055 12.41 0 14.723 0s4.44.053 6.514.179a8.707 8.707 0 0 1 5.019 1.9 8.055 8.055 0 0 1 2.707 4.37 19.367 19.367 0 0 1 .444 4.624c.015 1.075.03 2.348.033 3.643v.005c0 1.3-.018 2.569-.033 3.643a19.356 19.356 0 0 1-.444 4.624 8.055 8.055 0 0 1-2.707 4.37 8.707 8.707 0 0 1-5.019 1.9c-1.986.121-4.026.18-6.226.18zm-.293-2.3c2.27.005 4.355-.052 6.379-.175a6.336 6.336 0 0 0 3.7-1.387 5.807 5.807 0 0 0 1.932-3.156 17.618 17.618 0 0 0 .373-4.087c.015-1.068.03-2.332.033-3.615s-.018-2.547-.033-3.615a17.622 17.622 0 0 0-.373-4.087A5.807 5.807 0 0 0 24.8 3.863a6.337 6.337 0 0 0-3.7-1.386c-2.025-.123-4.109-.18-6.374-.175s-4.354.052-6.379.175a6.337 6.337 0 0 0-3.7 1.386 5.807 5.807 0 0 0-1.941 3.156 17.62 17.62 0 0 0-.373 4.087c-.015 1.068-.03 2.334-.033 3.617s.018 2.543.033 3.612a17.618 17.618 0 0 0 .373 4.087 5.807 5.807 0 0 0 1.932 3.156 6.337 6.337 0 0 0 3.7 1.386c2.03.125 4.115.183 6.379.177z" transform="translate(0 -.001)" style="fill:#293340"/>
             </g>
           </svg>
-          <span>filter</span>
+          <span class="mt-[5px]">filter</span>
         </button>
-        <div ref="filters" class="flex-row flex-wrap justify-center hidden ">
+        <div ref="filters" class="flex-row flex-wrap justify-center hidden mt-[5px]">
           <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred font-kamand"
                   :class="!projectCategory ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                   @click="getProjects(null)">
@@ -121,8 +121,7 @@ await getBlogs();
           <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred font-kamand"
                   :class="projectCategory == project_cat.id ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                   v-for="project_cat in projectCategories"
-                  @click="getProjects(project_cat.id)">
-            {{ project_cat.name }}
+                  @click="getProjects(project_cat.id)" v-html="project_cat.name">
           </button>
         </div>
       </div>
@@ -135,16 +134,15 @@ await getBlogs();
         <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300 font-kamand"
                 :class="projectCategory == project_cat.id ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                 v-for="project_cat in projectCategories"
-                @click="getProjects(project_cat.id)">
-          {{ project_cat.name }}
+                @click="getProjects(project_cat.id)" v-html="project_cat.name">
         </button>
       </div>
 
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3  xl:grid-cols-4 mt-12">
-        <div class="project relative border-[.5px] border-[#d8d8d8]" v-for="project in projects">
-          <NuxtLink class="w-full h-full" :to="`/projects/${project.slug}`">
-            <NuxtImg :src="project.featured_media_src_url" class="w-full" alt="project.slug" />
+        <div class="project relative border-[.5px] border-[#d8d8d8] rounded-[7px] m-[7px]" v-for="project in projects">
+          <NuxtLink class="w-full h-full rounded-[7px]" :to="`/projects/${project.slug}`">
+            <NuxtImg :src="project.featured_media_src_url" class="w-full h-full rounded-[7px]" alt="project.slug" />
           </NuxtLink>
 <!--          <button class="absolute top-4 right-4">-->
 <!--            <svg xmlns="http://www.w3.org/2000/svg" width="35.378" height="35.379" viewBox="0 0 35.378 35.379">-->
@@ -166,11 +164,11 @@ await getBlogs();
     </div>
     <div class="grid grid-cols-12">
       <div class="col-span-12 flex justify-center mt-16">
-        <NuxtLink to="/projects" class="bg-thred text-thwhite min-w-48 font-light font-xl px-16 py-6 flex flex-row content-center">
-          <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
-          </svg>
-          <p>Projects</p>
+        <NuxtLink to="/projects" class="text-center font-regular font-kamand bg-thred text-thwhite min-w-48 rounded-[7px] font-xl px-6 py-4">
+<!--          <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">-->
+<!--            <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>-->
+<!--          </svg>-->
+          <p class="mt-[8px]">Projects</p>
         </NuxtLink>
       </div>
     </div>
@@ -738,11 +736,9 @@ await getBlogs();
           <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>
           <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>
         </svg>
-        <h2 class="text-thblack-200 font-bold text-xl mt-10 px-28 xl:px-0">
-          {{ setting.call_title }}
+        <h2 class="text-thblack-200 font-bold text-xl mt-10 px-28 xl:px-0" v-html="setting.call_title">
         </h2>
-        <p class="text-thblack-100 text-xl mt-2 px-12 xl:px-0">
-          {{ setting.call_content }}
+        <p class="text-thblack-100 text-xl mt-2 px-12 xl:px-0" v-html="setting.call_content">
         </p>
         <div class="flex ">
           <NuxtLink :to="setting.call_button_link" class="bg-thred text-thwhite font-light font-xl min-w-48 px-20 py-6 flex flex-row content-center mt-10 mx-auto xl:mx-0">

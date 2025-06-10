@@ -44,6 +44,7 @@ export default {
     extend: {
       fontFamily: {
         'heebo': ['Heebo','Arial','sans-serif'],
+        'kamand': ['Kamand','Arial','sans-serif'],
       },
       animation: {
         'loop-scroll': 'loop-scroll 60s linear infinite',

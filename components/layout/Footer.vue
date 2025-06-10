@@ -3,7 +3,6 @@ import {useSettingStore} from "~/stores/useSettingStore.js";
 import useWpApi from "~/composables/useWpApi.ts";
 
 const setting = ref(useSettingStore().frontPage);
-console.log(setting);
 const menuItems = ref([]);
 const widgets = ref([]);
 const {data,error} = await useWpApi().get('menus/footer');
