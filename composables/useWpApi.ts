@@ -16,6 +16,8 @@ export default function () {
         taxonomy?: string,
         taxonomy_ids?: string|number,
         exclude?: string,
+        orderby: string,
+        order: string
     ) => {
         let query: string = `${cpt}?page=${page}&per_page=${perPage}&_embed=1&_fields=${fields}`;
         if (taxonomy) {
@@ -24,6 +26,11 @@ export default function () {
         if(exclude) {
             query += `&exclude=${exclude}`;
         }
+        if(orderby){
+            query += `&orderby=${orderby}&order=${order}`;
+        }
+
+
         return get<Post[]>(query);
     };
 

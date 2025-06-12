@@ -42,19 +42,20 @@ const showFilter = () => {
 const {data, error} = await useWpApi().getPosts('project_categories',1,20,'id,name');
 if(!error.value){
   projectCategories.value = data.value;
+  console.log(projectCategories.value);
 }
 
 const getProjects = async (category = null) => {
   if(category){
     projectCategory.value = category;
-    const {data, error} = await useWpApi().getPosts('projects',1,12,'slug,featured_media,featured_media_src_url','project_categories',category);
+    const {data, error} = await useWpApi().getPosts('projects',1,12,'slug,featured_media,featured_media_src_url','project_categories',category,undefined,'menu_order','desc');
     if(!error.value){
       projects.value = data.value;
     }
   }
   else{
     projectCategory.value = null;
-    const {data, error} = await useWpApi().getPosts('projects',1,12,'slug,featured_media,featured_media_src_url');
+    const {data, error} = await useWpApi().getPosts('projects',1,12,'slug,featured_media,featured_media_src_url',undefined,undefined,undefined,'menu_order','desc');
     if(!error.value){
       projects.value = data.value;
     }
@@ -179,7 +180,7 @@ await getBlogs();
         Our Services
       </h1>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4  xl:grid-cols-6 mt-12">
+    <div class="grid grid-cols-2 md:grid-cols-4  xl:grid-cols-5 mt-12">
       <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.609" height="86.145" viewBox="0 0 86.609 86.145">
           <g data-name="Group 10139">
@@ -480,42 +481,6 @@ await getBlogs();
         <p class="text-xl text-thblack-100 pt-10">Social Media</p>
       </div>
       <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="85" height="86.129" viewBox="0 0 85 86.129">
-          <g data-name="Group 10151">
-            <g data-name="Group 10149">
-              <path data-name="Path 29703" d="M2247.638 873.288a14.149 14.149 0 0 0 .425-2.159 17.726 17.726 0 0 1-15.966 31.592 19.075 19.075 0 0 0 7.323-5.617 10.629 10.629 0 0 0 6.776-18.633z" transform="translate(-2173.654 -851.085)" style="fill:#0c132b"/>
-              <path data-name="Path 29704" d="m2105.746 1116.624-36.254.026a18.127 18.127 0 0 1 36.254-.026" transform="translate(-2044.946 -1031.067)" style="fill:#b11f24"/>
-              <path data-name="Path 29705" d="M2146.948 1045.2a18.207 18.207 0 0 0-6.718 0l-.01-14.329 6.714-.1z" transform="translate(-2100.93 -977.451)" style="fill:#0c132b"/>
-              <path data-name="Path 29706" d="m2132.227 923.141.865 5.02-4.508-2.365-4.506 2.371.859-5.02-3.649-3.55 5.036-.734 2.252-4.569 2.258 4.565 5.04.728z" transform="translate(-2085.944 -885.252)" style="fill:#b11f24"/>
-              <path data-name="Path 29707" d="m2115.895 898.224-5.04-.728-2.258-4.563-2.252 4.563-5.036.734 3.649 3.566-.859 5.02 4.506-2.381 4.508 2.365-.865-5zm-7.284 14.195a12.554 12.554 0 1 1 12.544-12.564 12.549 12.549 0 0 1-12.531 12.567h-.012z" transform="translate(-2065.964 -863.894)" style="fill:#eee"/>
-              <path data-name="Path 29708" d="M2034.982 885.362a12.554 12.554 0 1 0-12.562-12.546 12.55 12.55 0 0 0 12.555 12.544zm-8.276 4.96a19.213 19.213 0 0 1-18.917-14.542l-2.863-11.4-1.417-5.672a14.936 14.936 0 0 1-.332-1.786 16.162 16.162 0 0 1-.072-3.8 8.553 8.553 0 0 0 4.818 1.47l54.069-.04a8.575 8.575 0 0 0 4.725-1.415 14.947 14.947 0 0 1-.4 5.9l-1.443 5.182-3.274 11.792a19.255 19.255 0 0 1-18.246 14.073l-3.262.046-1.75.028-6.714.1-1.22.018z" transform="translate(-1992.337 -836.832)" style="fill:#b11f24"/>
-              <path data-name="Path 29709" d="M2053.09 831.621a8.575 8.575 0 0 1-4.728 1.421l-54.069.04a8.6 8.6 0 0 1-8.482-7.143l70.913.486c-1.863 3.657-2.069 3.883-2.281 4.1a8.347 8.347 0 0 1-1.352 1.1z" transform="translate(-1978.709 -815.315)" style="fill:#0c132b"/>
-              <path data-name="Path 29710" d="M1987.757 780.113a8.559 8.559 0 0 1 6.078-2.522l54.071-.042a8.6 8.6 0 0 1 8.373 10.567l-70.917-.486a8.167 8.167 0 0 1-.123-1.439 8.553 8.553 0 0 1 2.518-6.079" transform="translate(-1978.256 -777.013)" style="fill:#b11f24"/>
-              <path data-name="Path 29711" d="M1971.952 878.83a10.629 10.629 0 0 0 6.3 18.488 19.247 19.247 0 0 0 7.478 5.835 17.518 17.518 0 0 1-6.615 1.286 17.726 17.726 0 0 1-8.909-33.062 14.96 14.96 0 0 0 .331 1.786l1.417 5.673z" transform="translate(-1959.362 -851.282)" style="fill:#0c132b"/>
-              <path data-name="Path 29712" d="M2067.42 1115.119a.546.546 0 0 1-.546-.544 18.669 18.669 0 0 1 18.649-18.688h.016a18.665 18.665 0 0 1 18.673 18.651.542.542 0 0 1-.538.545h-.006l-36.256.028zm18.127-18.141h-.014a17.575 17.575 0 0 0-17.561 17.05l35.149-.026a17.566 17.566 0 0 0-17.574-17.024" transform="translate(-2042.873 -1028.99)" style="fill:#0c132b"/>
-              <path data-name="Path 29713" d="M2306.529 855.423a.457.457 0 0 1-.07 0 .545.545 0 0 1-.472-.609 13.7 13.7 0 0 0-.022-3.6.545.545 0 1 1 1.081-.149 14.725 14.725 0 0 1 .022 3.887.544.544 0 0 1-.54.47" transform="translate(-2232.119 -834.832)" style="fill:#0c132b"/>
-              <path data-name="Path 29714" d="M2297.659 877.019a.544.544 0 0 1-.526-.69l1.441-5.183a13.747 13.747 0 0 0 .41-2.071.546.546 0 0 1 1.083.129 14.814 14.814 0 0 1-.444 2.234l-1.439 5.182a.546.546 0 0 1-.526.4" transform="translate(-2225.116 -849.088)" style="fill:#0c132b"/>
-              <path data-name="Path 29715" d="M2083.632 930.933a19.622 19.622 0 0 1-7.936-1.669.546.546 0 1 1 .328-1.04.556.556 0 0 1 .11.048 18.563 18.563 0 0 0 7.779 1.573l16.651-.238a18.544 18.544 0 0 0 7.208-1.565l.038-.016a18.67 18.67 0 0 0 10.484-12.1l3.274-11.79a.546.546 0 0 1 1.052.292l-3.276 11.79a19.76 19.76 0 0 1-11.131 12.815l-.034.014a19.639 19.639 0 0 1-7.6 1.643l-16.653.24z" transform="translate(-2049.554 -876.893)" style="fill:#0c132b"/>
-              <path data-name="Path 29716" d="M2023.864 930a.539.539 0 0 1-.22-.046 19.876 19.876 0 0 1-7.681-6.012 19.649 19.649 0 0 1-3.532-7.28l-2.871-11.4a.546.546 0 0 1 1.057-.266l2.865 11.4a18.523 18.523 0 0 0 3.337 6.877 18.788 18.788 0 0 0 7.258 5.681.545.545 0 0 1-.22 1.044z" transform="translate(-1997.498 -877.585)" style="fill:#0c132b"/>
-              <path data-name="Path 29717" d="M2002.827 862.779a.544.544 0 0 1-.528-.413l-1.418-5.674a15.507 15.507 0 0 1-.349-1.839 16.585 16.585 0 0 1-.074-3.927.546.546 0 0 1 1.089.07c0 .017 0 .034-.006.051a15.454 15.454 0 0 0 .072 3.665 14.147 14.147 0 0 0 .317 1.714l1.419 5.676a.546.546 0 0 1-.4.661.617.617 0 0 1-.125.016" transform="translate(-1990.238 -834.69)" style="fill:#0c132b"/>
-              <path data-name="Path 29718" d="M2170.387 1043.689a.544.544 0 0 1-.544-.544l-.012-14.423a.546.546 0 0 1 1.091 0l.01 14.421a.545.545 0 0 1-.543.546z" transform="translate(-2124.368 -975.395)" style="fill:#0c132b"/>
-              <path data-name="Path 29719" d="M2138.159 1044.071a.546.546 0 0 1-.546-.546l-.01-14.329a.544.544 0 1 1 1.087 0l.012 14.329a.546.546 0 0 1-.545.546z" transform="translate(-2098.858 -975.771)" style="fill:#0c132b"/>
-              <path data-name="Path 29720" d="M1991.764 793.29a9.139 9.139 0 0 1-9.012-7.593 8.938 8.938 0 0 1-.131-1.53 9.141 9.141 0 0 1 9.135-9.147l54.07-.042a9.151 9.151 0 0 1 9.139 9.127 9.042 9.042 0 0 1-.234 2.1.563.563 0 0 1-.044.123c-1.921 3.77-2.113 3.968-2.381 4.234a8.974 8.974 0 0 1-1.389 1.143l-.042.032a9.108 9.108 0 0 1-5.03 1.51l-54.069.042zm54.071-17.23-54.071.04a8.052 8.052 0 0 0-8.046 8.056 7.584 7.584 0 0 0 .109 1.343 8.044 8.044 0 0 0 7.937 6.7l54.071-.042a8.021 8.021 0 0 0 4.385-1.3l.046-.034a7.83 7.83 0 0 0 1.262-1.028c.149-.151.337-.343 2.153-3.9a8.242 8.242 0 0 0 .2-1.786 8.059 8.059 0 0 0-8.044-8.048" transform="translate(-1976.184 -774.979)" style="fill:#0c132b"/>
-              <path data-name="Path 29721" d="M1977 902.959a18.272 18.272 0 0 1-9.168-34.079.546.546 0 0 1 .547.942A17.185 17.185 0 0 0 1977 901.87h.014a16.971 16.971 0 0 0 6.409-1.246.525.525 0 0 1 .2-.04.544.544 0 0 1 .173 1.062 18.031 18.031 0 0 1-6.788 1.313z" transform="translate(-1957.265 -849.256)" style="fill:#0c132b"/>
-              <path data-name="Path 29722" d="M2003.068 924.071h-.044a11.173 11.173 0 0 1-6.647-19.4.548.548 0 0 1 .828.716.753.753 0 0 1-.063.069 10.081 10.081 0 0 0 5.972 17.53.546.546 0 0 1-.04 1.089z" transform="translate(-1984.178 -877.5)" style="fill:#0c132b"/>
-              <path data-name="Path 29723" d="M2237.332 902.721a18.123 18.123 0 0 1-7.313-1.528.546.546 0 0 1 .438-.992 17.035 17.035 0 0 0 6.875 1.435h.014a17.179 17.179 0 0 0 8.583-32.056.551.551 0 0 1-.224-.248.544.544 0 0 1 .494-.772.551.551 0 0 1 .322.105 18.269 18.269 0 0 1-9.171 34.061z" transform="translate(-2171.794 -849.052)" style="fill:#0c132b"/>
-              <path data-name="Path 29724" d="M2265.28 923.459a.545.545 0 0 1-.01-1.089 10.085 10.085 0 0 0 6.422-17.681.541.541 0 0 1-.138-.2.516.516 0 0 1-.044-.216.546.546 0 0 1 .544-.546.538.538 0 0 1 .4.173 11.175 11.175 0 0 1-7.157 19.556z" transform="translate(-2199.509 -876.89)" style="fill:#0c132b"/>
-              <path data-name="Path 29725" d="M2106.525 910.95a13.1 13.1 0 0 1-.01-26.191h.01a13.1 13.1 0 0 1 0 26.2zm0-25.107a12.008 12.008 0 0 0 0 24.008h.01a12 12 0 0 0 12-12.01v-.006a12 12 0 0 0-12.008-11.992" transform="translate(-2063.89 -861.874)" style="fill:#0c132b"/>
-              <path data-name="Path 29726" d="M2119.225 938.209a.546.546 0 1 1 .548-.545.546.546 0 0 1-.548.545z" transform="translate(-2083.88 -903.318)" style="fill:#0c132b"/>
-              <path data-name="Path 29727" d="M2122.008 926.637a.555.555 0 0 1-.32-.1.544.544 0 0 1-.216-.534l.81-4.738-3.445-3.349a.54.54 0 0 1-.136-.558.546.546 0 0 1 .438-.373l4.762-.693 2.125-4.312a.542.542 0 0 1 .972 0l2.131 4.31 4.762.686a.546.546 0 0 1 .3.929l-3.45 3.355.815 4.736a.544.544 0 0 1-.794.575l-4.256-2.232-4.248 2.238a.526.526 0 0 1-.254.059m-1.617-8.73 2.855 2.778a.542.542 0 0 1 .157.484l-.663 3.93 3.528-1.857a.547.547 0 0 1 .508 0l3.53 1.851-.677-3.931a.54.54 0 0 1 .157-.482l2.853-2.778-3.947-.575a.542.542 0 0 1-.41-.3l-1.77-3.571-1.764 3.571a.543.543 0 0 1-.41.3z" transform="translate(-2083.875 -883.181)" style="fill:#0c132b"/>
-              <path data-name="Path 29728" d="m2054.787 824.877-70.915-.486a.546.546 0 0 1 0-1.089l70.919.486a.546.546 0 0 1 0 1.089z" transform="translate(-1976.768 -813.229)" style="fill:#0c132b"/>
-              <path data-name="Path 29729" d="M2182 1128.031a.544.544 0 0 1-.484-.292 13.272 13.272 0 0 0-6.234-5.488.546.546 0 0 1 .362-1.029l.035.014a14.247 14.247 0 0 1 6.8 6 .543.543 0 0 1-.482.794z" transform="translate(-2128.391 -1049.019)" style="fill:#eee"/>
-            </g>
-          </g>
-        </svg>
-        <p class="text-xl text-thblack-100 pt-10">Website</p>
-      </div>
-      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.245" height="86.145" viewBox="0 0 86.245 86.145">
           <g data-name="Group 10140">
             <g data-name="Group 10004">
@@ -586,29 +551,6 @@ await getBlogs();
           </g>
         </svg>
         <p class="text-xl text-thblack-100 pt-10">Content Plan</p>
-      </div>
-      <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="86" height="86.381" viewBox="0 0 86 86.381">
-          <g data-name="Group 10152">
-            <g data-name="Group 10150">
-              <path data-name="Path 29821" d="m4272.137 1024.488 1.644-1.046 3.792 6.385-20.591 14.12-3.109-7.837 1.471-.931zm-11.848 13.824a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5" transform="translate(-4205.209 -972.28)" style="fill:#0c132b"/>
-              <path data-name="Path 29822" d="M4273.041 1092.646a1.5 1.5 0 1 1-1.5 1.5 1.5 1.5 0 0 1 1.5-1.5" transform="translate(-4219.463 -1028.116)" style="fill:#eee"/>
-              <path data-name="Path 29823" d="m4275.521 1084.589-5.553-13.973 20.591-14.12 8.733 14.693z" transform="translate(-4218.195 -998.95)" style="fill:#b11f24"/>
-              <path data-name="Path 29824" d="M4181.364 911.331a2.24 2.24 0 0 1 .907-3.034l.013-.007 1.837-.982a2.245 2.245 0 0 1 2.894.713l2.55 3.743 3.451 5.06 3.192-1.633a1.953 1.953 0 0 1 1.643-.063l1.42.594 2.552-1.351a1.956 1.956 0 0 1 2.368.417 50.73 50.73 0 0 1 9.226 15.786l-16.808 10.691-.011-.015-1.165-2.035-7.115-5.074a2.154 2.154 0 0 1-.759-.973l-1.889-4.795a2.178 2.178 0 0 1-.051-1.447l1.531-4.87-2.831-5.242z" transform="translate(-4146.489 -878.37)" style="fill:#eee"/>
-              <path data-name="Path 29825" d="M4060.86 790.5a2.239 2.239 0 0 0-.916 3.032l.009.016 2.966 5.5a20.744 20.744 0 1 1 5.245-5.06l-2.559-3.745a2.245 2.245 0 0 0-2.907-.715zm-21.849-7.31 7.338 7.325a4.556 4.556 0 0 0 6.443 0l10.936-10.95a4.56 4.56 0 1 0-6.2-6.69q-.132.122-.254.256l-7.722 7.722-4.111-4.105a4.56 4.56 0 0 0-6.666 6.223q.111.119.231.23z" transform="translate(-4025.079 -760.59)" style="fill:#b11f24"/>
-              <path data-name="Path 29826" d="M4082.266 835.1a4.556 4.556 0 0 1-6.443 0l-7.338-7.321a4.56 4.56 0 0 1 6.444-6.453l4.111 4.105 7.721-7.722a4.56 4.56 0 1 1 6.528 6.367l-.077.077z" transform="translate(-4054.548 -805.179)" style="fill:#eee"/>
-              <path data-name="Path 29827" d="M4246.755 948.814a.5.5 0 0 1-.477-.327l-.047-.118a49.954 49.954 0 0 0-9.127-15.627 1.451 1.451 0 0 0-1.758-.309l-2.551 1.349a.5.5 0 0 1-.43.02l-1.421-.592a1.449 1.449 0 0 0-1.219.044l-3.191 1.627a.5.5 0 0 1-.647-.165l-3.451-5.06a.506.506 0 0 1 .835-.57l3.2 4.694 2.795-1.425a2.449 2.449 0 0 1 2.067-.077l1.2.5 2.346-1.237a2.46 2.46 0 0 1 2.978.528 51.063 51.063 0 0 1 9.323 15.944l.046.121a.5.5 0 0 1-.472.682z" transform="translate(-4179.78 -895.983)" style="fill:#0c132b"/>
-              <path data-name="Path 29828" d="M4189.209 928.186a.506.506 0 0 1-.445-.265l-10-18.517a2.748 2.748 0 0 1 1.119-3.722l1.839-.98a2.74 2.74 0 0 1 3.559.873l2.55 3.743a.506.506 0 0 1-.8.614.74.74 0 0 1-.031-.046l-2.549-3.741a1.734 1.734 0 0 0-2.252-.552l-1.839.982a1.735 1.735 0 0 0-.713 2.348v.007l10 18.517a.505.505 0 0 1-.445.745z" transform="translate(-4144.345 -876.211)" style="fill:#0c132b"/>
-              <path data-name="Path 29829" d="M4213 1002.464a.5.5 0 0 1-.437-.256l-1.1-1.938-7.025-5.01a2.653 2.653 0 0 1-.937-1.2l-1.888-4.8a2.7 2.7 0 0 1-.063-1.781l1.532-4.87a.506.506 0 0 1 .964.3l-1.532 4.87a1.67 1.67 0 0 0 .041 1.1l1.886 4.8a1.641 1.641 0 0 0 .583.735l7.117 5.078a.473.473 0 0 1 .143.16l1.166 2.033a.5.5 0 0 1-.182.689.5.5 0 0 1-.261.083" transform="translate(-4162.893 -939.075)" style="fill:#0c132b"/>
-              <path data-name="Path 29830" d="M4260.39 1056.308a.474.474 0 0 1-.167-.029.5.5 0 0 1-.3-.289l-8.671-21.81a.509.509 0 0 1 .2-.614l19.915-12.667a.5.5 0 0 1 .7.151.1.1 0 0 0 .01.016l3.792 6.387 8.733 14.693a.508.508 0 0 1-.178.7h-.006l-23.771 13.4a.5.5 0 0 1-.25.066m-8.045-22.113 2.962 7.449 5.332 13.434 22.816-12.861-11.994-20.187-1.2.765z" transform="translate(-4203.064 -970.163)" style="fill:#0c132b"/>
-              <path data-name="Path 29831" d="M4267.873 1069.067a.506.506 0 0 1-.287-.919l20.591-14.122a.506.506 0 0 1 .572.833l-20.591 14.122a.515.515 0 0 1-.285.086" transform="translate(-4216.1 -996.894)" style="fill:#0c132b"/>
-              <path data-name="Path 29832" d="M4270.675 1094.048a2.008 2.008 0 1 1-.122-4.013h.122a2.008 2.008 0 0 1 .121 4.013h-.121m0-3a1 1 0 1 0-.085 1.995h.085a1 1 0 0 0 0-1.995" transform="translate(-4217.097 -1026.008)" style="fill:#0c132b"/>
-              <path data-name="Path 29833" d="M4049.383 801.037a21.231 21.231 0 0 1-.015-42.462h.017a21.229 21.229 0 0 1 17.2 33.672.5.5 0 1 1-.823-.579 20.224 20.224 0 0 0-16.374-32.082h-.017a20.217 20.217 0 0 0 .011 40.434h.017a20.107 20.107 0 0 0 11.24-3.421.5.5 0 1 1 .563.836 21.093 21.093 0 0 1-11.8 3.6z" transform="translate(-4023.09 -758.575)" style="fill:#0c132b"/>
-              <path data-name="Path 29834" d="M4076.929 834.975a5.093 5.093 0 0 1-3.58-1.48l-7.337-7.324a5.066 5.066 0 0 1 7.157-7.17l3.754 3.749 7.354-7.367a5.065 5.065 0 1 1 7.17 7.157l-10.939 10.95a5.084 5.084 0 0 1-3.578 1.485zm-7.339-16.442a4.045 4.045 0 0 0-2.87 6.922l7.338 7.325a4.06 4.06 0 0 0 5.736-.006l10.937-10.945a4.054 4.054 0 1 0-5.736-5.731l-7.721 7.722a.509.509 0 0 1-.716 0l-4.1-4.105a4.043 4.043 0 0 0-2.866-1.182" transform="translate(-4052.436 -803.21)" style="fill:#0c132b"/>
-            </g>
-          </g>
-        </svg>
-        <p class="text-xl text-thblack-100 pt-10">Seo</p>
       </div>
       <div class="flex flex-col justify-center items-center py-12 border border-[#d8d8d8]" >
         <svg xmlns="http://www.w3.org/2000/svg" width="86.145" height="86" viewBox="0 0 86.145 86">
@@ -726,55 +668,39 @@ await getBlogs();
 
     </div>
   </section>
-  <section class="container callAction mt-44 lg:mt-52 xl:mt-80">
+  <section class="container callAction mt-44 lg:mt-52">
     <div class="grid grid-cols-12 xl:gap-24">
-      <div class="col-span-12 xl:col-span-5">
-        <NuxtImg :src="setting.call_image" class="h-auto max-w-full" />
-      </div>
-      <div class="col-span-12 xl:col-span-7 mt-14 xl:mt-0 text-center xl:text-start">
-        <svg class="mx-auto xl:mx-0" data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">
-          <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>
-          <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>
-        </svg>
-        <h2 class="text-thblack-200 font-bold text-xl mt-10 px-28 xl:px-0" v-html="setting.call_title">
+      <div class="col-span-12 xl:col-span-7 mt-14 xl:mt-0 text-center xl:text-start justify-center flex flex-col order-2 xl:order-1">
+<!--        <svg class="mx-auto xl:mx-0" data-name="Quote Pattern" xmlns="http://www.w3.org/2000/svg" width="70.534" height="49.791" viewBox="0 0 70.534 49.791">-->
+<!--          <path d="M15.642 0a15.643 15.643 0 0 0-.907 31.259c.142 1.534.035 5.709-3.965 11.516a1.1 1.1 0 0 0 .128 1.4c1.637 1.637 2.649 2.668 3.357 3.389.927.943 1.35 1.373 1.969 1.935a1.1 1.1 0 0 0 1.464.016 42.24 42.24 0 0 0 13.594-33.953C30.625 6.545 24.048 0 15.642 0z" transform="rotate(180 35.267 24.896)" style="fill:#e60018"/>-->
+<!--          <path data-name="Shape" d="M31.284 15.562C30.625 6.545 24.047 0 15.643 0a15.643 15.643 0 0 0-.906 31.259c.142 1.533.034 5.705-3.967 11.516a1.1 1.1 0 0 0 .128 1.4c1.631 1.631 2.64 2.66 3.348 3.38.931.949 1.356 1.382 1.978 1.946a1.1 1.1 0 0 0 1.464.014 42.243 42.243 0 0 0 13.596-33.953z" transform="rotate(180 15.696 24.895)" style="fill:#e60018"/>-->
+<!--        </svg>-->
+        <h2 class="font-kamand font-medium text-[#363636] [&_span]:text-thred text-[40px] lg:text-[px] mt-10 px-12 xl:px-0" v-html="setting.call_title">
         </h2>
-        <p class="text-thblack-100 text-xl mt-2 px-12 xl:px-0" v-html="setting.call_content">
+        <p class="text-thblack-100 text-lg mt-2 px-12 xl:px-0" v-html="setting.call_content">
         </p>
         <div class="flex ">
-          <NuxtLink :to="setting.call_button_link" class="bg-thred text-thwhite font-light font-xl min-w-48 px-20 py-6 flex flex-row content-center mt-10 mx-auto xl:mx-0">
-            <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-              <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>
-            </svg>
-            <span>{{ setting.call_button_text }}</span>
+          <NuxtLink :to="setting.call_button_link" class="text-center font-regular font-kamand rounded-[7px] bg-thred text-thwhite font-xl min-w-48 px-6 py-4  mt-10 mx-auto xl:mx-0">
+<!--            <svg class="mt-1 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">-->
+<!--              <path d="M9.6 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 16a.8.8 0 0 1-.8-.8V9.6a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zm8-7.2a.8.8 0 0 1-.8-.8V.8a.8.8 0 0 1 .8-.8h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4zM.8 7.2a.8.8 0 0 1-.8-.8V.8A.8.8 0 0 1 .8 0h5.6a.8.8 0 0 1 .8.8v5.6a.8.8 0 0 1-.8.8zm.8-1.6h4v-4h-4z" style="fill:#fff"/>-->
+<!--            </svg>-->
+            <span class="block mt-[8px]" >{{ setting.call_button_text }}</span>
           </NuxtLink>
         </div>
       </div>
+      <div class="col-span-12 xl:col-span-5 order-1 xl:order-2">
+        <NuxtImg :src="setting.call_image" class="h-auto max-w-full" />
+      </div>
     </div>
   </section>
-  <section class="container testimonials mt-44 lg:mt-52 xl:mt-72">
+  <section class="container testimonials mt-44 lg:mt-52 hidden">
     <div class="grid grid-cols-12">
-      <div class="col-span-12 xl:col-span-6 flex justify-center xl:justify-start">
+      <div class="col-span-12 flex justify-center ">
         <h1 class="text-thblack-100 text-2xl font-kamand">Testimonials</h1>
-      </div>
-      <div class="hidden xl:flex xl:col-span-6 justify-end">
-        <NuxtLink to="/" class="text-thred text-2xl">
-          See All
-        </NuxtLink>
       </div>
     </div>
     <div class="grid grid-cols-12 mt-14">
-      <div class="col-span-3 hidden xl:block xl:mr-8">
-          <NuxtImg :src="testimonial.featured_media_src_url" class="w-full"/>
-          <div class="bg-thred px-6 py-7">
-            <h1 class="text-thwhite font-bold text-xl xl:text-base ">
-              {{ testimonial.title.rendered }}
-            </h1>
-            <p class="text-thwhite text-base">
-              {{ testimonial.acf.teller }}
-            </p>
-          </div>
-      </div>
-      <div class="col-span-12 xl:col-span-9">
+      <div class="col-span-12 ">
           <swiper-container
               :slides-per-view="1"
               :breakpoints="{
@@ -789,7 +715,7 @@ await getBlogs();
               ref="slider"
           >
             <swiper-slide v-for="(test,index) in testimonials">
-              <div class="testimonial col-span-2 group mx-0 md:mx-3 transition-all duration-300" :class="test.id == testimonial.id ? 'active': ' '" @click="getActive(index)">
+              <div class="relative testimonial col-span-2 group mx-0 md:mx-3 transition-all duration-300" :class="test.id == testimonial.id ? 'active': ' '" @click="getActive(index)">
                 <NuxtImg class="h-auto w-full" :src="test.featured_media_src_url" />
                 <div class="bg-thgray-200 px-6 py-7 text-center xl:text-start group-hover:bg-thred group-[.active]:bg-thred transition-all duration-300" >
                   <h1 class="text-thblack-200 font-semibold text-xl xl:text-base group-hover:text-thwhite group-hover:font-bold group-[.active]:text-thwhite group-[.active]:font-bold transition-all duration-300 ">
@@ -835,7 +761,7 @@ await getBlogs();
     </div>
   </section>
   <section class="partners mt-44 lg:mt-52 group">
-    <div class="grid grids-col-12 place-items-center">
+    <div class="grid grids-col-12 place-items-center mb-10">
         <h1 class="text-thblack-100 text-2xl font-kamand">
             Our Partners
         </h1>
@@ -846,7 +772,7 @@ await getBlogs();
       </div>
     </div>
   </section>
-  <section class="container blogs mt-44 lg:mt-52 xl:mt-72 group">
+  <section class="container blogs mt-44 lg:mt-52 xl:mt-72 group hidden">
     <div class="grid grids-col-12 place-items-center">
       <h1 class="text-thblack-100 text-2xl font-kamand">
         Our Blogs

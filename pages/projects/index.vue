@@ -108,8 +108,7 @@ await getProjects();
         <button class="text-lg mx-3.5 border-b-2 hover:text-thred hover:border-b-2 hover:border-b-thred transition-all duration-300"
                 :class="projectCategory == project_cat.id ? 'text-thred border-b-thred':'text-thblack-100 border-b-transparent'"
                 v-for="project_cat in projectCategories"
-                @click="getProjects(1,project_cat.id)">
-          {{ project_cat.name }}
+                @click="getProjects(1,project_cat.id)" v-html="project_cat.name">
         </button>
       </div>
 
